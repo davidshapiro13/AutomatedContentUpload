@@ -97,10 +97,17 @@ def validate_manifest(rows: List[ManifestRow], repo_root: Path) -> List[str]:
             errors.append(f"{row.row_id}: invalid youtube_privacy {row.youtube_privacy!r}")
         if not (row.post_to_tiktok or row.post_to_instagram or row.post_to_youtube):
             errors.append(f"{row.row_id}: no platforms selected")
-        if not row.video_file:
-            errors.append(f"{row.row_id}: video_file is empty")
-        else:
-            abs_path = repo_root / row.video_file
-            if not abs_path.exists():
-                errors.append(f"{row.row_id}: missing video file {row.video_file}")
+        # Posted rows are historical and should not block future runs.
+        if row.status == "posted":
+            continue
+
+        # Local file is only required when we cannot post from a hosted media URL.
+        needs_local_file = row.post_to_youtube or not row.zernio_media_url
+        if needs_local_file:
+            if not row.video_file:
+                errors.append(f"{row.row_id}: video_file is empty")
+            else:
+                abs_path = repo_root / row.video_file
+                if not abs_path.exists():
+                    errors.append(f"{row.row_id}: missing video file {row.video_file}")
     return errors
