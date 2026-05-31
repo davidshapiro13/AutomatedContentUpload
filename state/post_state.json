@@ -13,6 +13,45 @@
       "updated_at": "2026-05-31T20:18:40.589892+00:00",
       "video_file": "videos/inbox/Day in the Life Studying Abroad in New Zealand.mp4"
     },
+    "videos/inbox/Hiking through New Zealand - Study Abroad.mp4|2026-05-31T17:00:00-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": "Missing ZERNIO_API_KEY",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        }
+      },
+      "row_id": "manifest.csv:3",
+      "updated_at": "2026-05-31T21:37:41.057479+00:00",
+      "video_file": "videos/inbox/Hiking through New Zealand - Study Abroad.mp4"
+    },
+    "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4|2026-05-31T16:54:34-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": "Missing ZERNIO_API_KEY",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        }
+      },
+      "row_id": "manifest.csv:15",
+      "updated_at": "2026-05-31T21:37:41.057522+00:00",
+      "video_file": "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4"
+    },
+    "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4|2026-05-31T16:54:39-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": "Missing ZERNIO_API_KEY",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        }
+      },
+      "row_id": "manifest.csv:16",
+      "updated_at": "2026-05-31T21:37:41.057543+00:00",
+      "video_file": "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4"
+    },
     "videos/inbox/example_clip.mp4|2026-05-01T10:00:00-04:00": {
       "platforms": {
         "instagram": {
