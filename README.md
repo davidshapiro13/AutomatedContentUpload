@@ -35,6 +35,20 @@ python3 main.py post-due --manifest manifests/manifest.csv --state state/post_st
 python3 main.py report --state state/post_state.json
 ```
 
+## Local Uploader (V2 Intake)
+
+Run a local-only UI (not hosted) to upload a video to R2, append a manifest row, then `git add/commit/push`.
+
+```bash
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m streamlit run uploader_app.py
+```
+
+Notes:
+- Requires `git` remote/auth already configured for push.
+- Uses `.env` in repo root for `MEDIA_S3_*` values and credentials.
+- The uploader writes `zernio_media_url` so posting does not require local video files.
+
 ## Manifest Columns
 
 Required columns:

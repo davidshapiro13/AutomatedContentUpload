@@ -1,5 +1,18 @@
 {
   "posts": {
+    "videos/inbox/Day in the Life Studying Abroad in New Zealand.mp4|2026-05-31T10:00:00-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": null,
+          "external_id": "6a1c979d04956cf9712d7bf7",
+          "external_url": null,
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:2",
+      "updated_at": "2026-05-31T20:18:40.589892+00:00",
+      "video_file": "videos/inbox/Day in the Life Studying Abroad in New Zealand.mp4"
+    },
     "videos/inbox/example_clip.mp4|2026-05-01T10:00:00-04:00": {
       "platforms": {
         "instagram": {

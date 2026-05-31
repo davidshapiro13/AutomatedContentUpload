@@ -6,4 +6,4 @@ set -a
 source .env
 set +a
 
-/usr/bin/python3 main.py post-due --manifest manifests/manifest.csv --state state/post_state.json
+.venv/bin/python main.py post-due --manifest manifests/manifest.csv --state state/post_state.json
