@@ -23,7 +23,7 @@
         }
       },
       "row_id": "manifest.csv:3",
-      "updated_at": "2026-05-31T21:55:22.135185+00:00",
+      "updated_at": "2026-05-31T22:56:00.558405+00:00",
       "video_file": "videos/inbox/Hiking through New Zealand - Study Abroad.mp4"
     },
     "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4|2026-05-31T16:54:34-04:00": {
@@ -36,7 +36,7 @@
         }
       },
       "row_id": "manifest.csv:15",
-      "updated_at": "2026-05-31T21:55:22.135239+00:00",
+      "updated_at": "2026-05-31T22:56:00.558462+00:00",
       "video_file": "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4"
     },
     "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4|2026-05-31T16:54:39-04:00": {
@@ -49,8 +49,21 @@
         }
       },
       "row_id": "manifest.csv:16",
-      "updated_at": "2026-05-31T21:55:22.135258+00:00",
+      "updated_at": "2026-05-31T22:56:00.558478+00:00",
       "video_file": "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4"
+    },
+    "videos/inbox/Study Abroad in Wellington, New Zealand.mp4|2026-05-31T18:00:00-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": "Missing ZERNIO_API_KEY",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        }
+      },
+      "row_id": "manifest.csv:4",
+      "updated_at": "2026-05-31T22:56:00.558427+00:00",
+      "video_file": "videos/inbox/Study Abroad in Wellington, New Zealand.mp4"
     },
     "videos/inbox/example_clip.mp4|2026-05-01T10:00:00-04:00": {
       "platforms": {
