@@ -1,0 +1,91 @@
+# Automated Reels Publisher (Python)
+
+Simple CSV-driven automation scaffold for posting short-form videos to:
+- TikTok
+- Instagram Reels
+- YouTube Shorts
+
+Platform adapters:
+- TikTok + Instagram use Zernio
+- YouTube Shorts uses direct YouTube Data API upload (no Zernio)
+
+This v1 is production-structured and uses a single Zernio adapter. It supports:
+- Manifest validation
+- Due-post processing
+- Retry failed posts
+- Status reports
+- Dry-run mode
+
+## Project Layout
+
+- `videos/inbox/` - place source videos here
+- `manifests/manifest.csv` - controls what/where/when to post
+- `state/post_state.json` - stores posting status and per-platform results
+- `src/reels_publisher/` - Python package
+- `main.py` - CLI entrypoint
+
+## Quick Start
+
+1. Create virtual env and activate (optional)
+2. Run:
+
+```bash
+python3 main.py validate-manifest --manifest manifests/manifest.csv
+python3 main.py post-due --manifest manifests/manifest.csv --state state/post_state.json --dry-run
+python3 main.py report --state state/post_state.json
+```
+
+## Manifest Columns
+
+Required columns:
+- `video_file` (path relative to repo root, e.g. `videos/inbox/my_clip.mp4`)
+- `caption`
+- `hashtags` (space-separated, e.g. `#ai #python`)
+- `post_to_tiktok` (`true`/`false`)
+- `post_to_instagram` (`true`/`false`)
+- `post_to_youtube` (`true`/`false`)
+- `scheduled_at` (ISO timestamp, e.g. `2026-05-29T20:30:00-04:00`)
+- `status` (`ready`, `hold`, `posted`, `failed`, `partial`)
+- `notes`
+
+Optional columns:
+- `tiktok_caption`
+- `instagram_caption`
+- `zernio_media_url` (used for Zernio platforms; if empty, project auto-uploads from `video_file`)
+- `zernio_profile_id` (optional per-row override; otherwise use env var)
+- `zernio_tiktok_account_id` (optional per-row override for TikTok account)
+- `zernio_instagram_account_id` (optional per-row override for Instagram account)
+- `zernio_youtube_account_id` (optional per-row override for YouTube account)
+- `youtube_title`
+- `youtube_description`
+- `youtube_privacy` (`private`, `unlisted`, `public`)
+
+Backward compatibility:
+- If `zernio_media_url` is missing, parser will fall back to `tiktok_video_url` or `instagram_video_url` if present.
+
+## Environment Variables
+
+- `ZERNIO_API_KEY`
+- `ZERNIO_PROFILE_ID` (default profile if not set in manifest row)
+- `ZERNIO_TIKTOK_ACCOUNT_ID` (recommended for multi-account setups)
+- `ZERNIO_INSTAGRAM_ACCOUNT_ID` (recommended for multi-account setups)
+- `ZERNIO_YOUTUBE_ACCOUNT_ID` (recommended for multi-account setups)
+- `YOUTUBE_ACCESS_TOKEN` (required for direct YouTube upload)
+- `YOUTUBE_CATEGORY_ID` (optional, default `22`)
+
+Auto-upload settings (optional, used when `zernio_media_url` is blank):
+- `MEDIA_S3_BUCKET` (required for auto-upload)
+- `MEDIA_S3_REGION` (default `us-east-1`)
+- `MEDIA_S3_ENDPOINT_URL` (for S3-compatible providers like R2/Wasabi/MinIO)
+- `MEDIA_S3_PUBLIC_BASE_URL` (recommended for custom endpoints; e.g. your CDN/domain base)
+- `MEDIA_S3_KEY_PREFIX` (default `reels`)
+- `MEDIA_S3_ACL` (optional, e.g. `public-read` if your bucket model requires ACLs)
+
+Notes for auto-upload:
+- The runtime must have valid AWS-style credentials in env (for example `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`).
+- Install dependency: `pip install boto3`.
+
+Notes:
+- You connect TikTok/Instagram/YouTube accounts in Zernio once via OAuth.
+- TikTok/Instagram publish through Zernio, YouTube publishes directly to YouTube API.
+- None of these are required for `--dry-run`.

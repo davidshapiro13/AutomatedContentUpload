@@ -1,0 +1,29 @@
+{
+  "posts": {
+    "videos/inbox/example_clip.mp4|2026-05-01T10:00:00-04:00": {
+      "platforms": {
+        "instagram": {
+          "error": null,
+          "external_id": "instagram_20260530015252",
+          "external_url": null,
+          "success": true
+        },
+        "tiktok": {
+          "error": null,
+          "external_id": "tiktok_20260530015252",
+          "external_url": null,
+          "success": true
+        },
+        "youtube": {
+          "error": null,
+          "external_id": "youtube_20260530015252",
+          "external_url": null,
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:2",
+      "updated_at": "2026-05-30T01:52:52.959493+00:00",
+      "video_file": "videos/inbox/example_clip.mp4"
+    }
+  }
+}
