@@ -3,14 +3,14 @@
     "videos/archive/Afternoon at Walden Pond.mp4|2026-06-01T20:00:00-04:00": {
       "platforms": {
         "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
+          "error": "Missing video file: videos/archive/Afternoon at Walden Pond.mp4",
           "external_id": null,
           "external_url": null,
           "success": false
         }
       },
       "row_id": "manifest.csv:6",
-      "updated_at": "2026-06-02T00:09:44.455589+00:00",
+      "updated_at": "2026-06-02T02:02:02.329733+00:00",
       "video_file": "videos/archive/Afternoon at Walden Pond.mp4"
     },
     "videos/inbox/Hiking through New Zealand - Study Abroad.mp4|2026-05-31T17:00:00-04:00": {
