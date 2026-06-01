@@ -14,6 +14,7 @@ import streamlit as st
 
 REPO_ROOT = Path(__file__).resolve().parent
 MANIFEST_PATH = REPO_ROOT / "manifests" / "manifest.csv"
+STATE_PATH = REPO_ROOT / "state" / "post_state.json"
 EASTERN_TZ = ZoneInfo("America/New_York")
 
 
@@ -93,7 +94,13 @@ def _git(*args: str) -> None:
     subprocess.run(["git", *args], cwd=REPO_ROOT, check=True)
 
 
+def _discard_local_state_changes() -> None:
+    rel_state = str(STATE_PATH.relative_to(REPO_ROOT))
+    subprocess.run(["git", "restore", "--", rel_state], cwd=REPO_ROOT, check=False)
+
+
 def commit_and_push(message: str) -> None:
+    _discard_local_state_changes()
     _git("pull", "--rebase")
     _git("add", str(MANIFEST_PATH.relative_to(REPO_ROOT)))
     commit_proc = subprocess.run(
