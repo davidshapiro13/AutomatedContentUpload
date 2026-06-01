@@ -94,9 +94,35 @@ def _git(*args: str) -> None:
 
 
 def commit_and_push(message: str) -> None:
+    _git("pull", "--rebase")
     _git("add", str(MANIFEST_PATH.relative_to(REPO_ROOT)))
-    _git("commit", "-m", message)
-    _git("push")
+    commit_proc = subprocess.run(
+        ["git", "commit", "-m", message],
+        cwd=REPO_ROOT,
+        text=True,
+        capture_output=True,
+    )
+    if commit_proc.returncode != 0:
+        output = f"{commit_proc.stdout}\n{commit_proc.stderr}".lower()
+        if "nothing to commit" in output:
+            return
+        raise subprocess.CalledProcessError(
+            commit_proc.returncode, commit_proc.args, output=commit_proc.stdout, stderr=commit_proc.stderr
+        )
+
+    push_proc = subprocess.run(["git", "push"], cwd=REPO_ROOT, text=True, capture_output=True)
+    if push_proc.returncode == 0:
+        return
+
+    push_text = f"{push_proc.stdout}\n{push_proc.stderr}".lower()
+    if "non-fast-forward" in push_text or "fetch first" in push_text or "rejected" in push_text:
+        _git("pull", "--rebase")
+        _git("push")
+        return
+
+    raise subprocess.CalledProcessError(
+        push_proc.returncode, push_proc.args, output=push_proc.stdout, stderr=push_proc.stderr
+    )
 
 
 def default_scheduled_at() -> str:
