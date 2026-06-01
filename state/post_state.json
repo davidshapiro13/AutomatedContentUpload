@@ -1,55 +1,17 @@
 {
   "posts": {
-    "videos/inbox/Afternoon at Walden Pond.mp4|2026-06-01T14:00:00-04:00": {
+    "videos/archive/Visiting World\u2019s End in Hingham, Massachusetts.mp4|2026-06-01T16:00:00-04:00": {
       "platforms": {
         "tiktok": {
           "error": null,
-          "external_id": "zernio_tiktok_20260601203507",
-          "external_url": null,
-          "success": true
-        }
-      },
-      "row_id": "manifest.csv:6",
-      "updated_at": "2026-06-01T20:35:07.611863+00:00",
-      "video_file": "videos/inbox/Afternoon at Walden Pond.mp4"
-    },
-    "videos/inbox/Interview on the Common #2.mov|2026-06-01T15:15:00-04:00": {
-      "platforms": {
-        "instagram": {
-          "error": null,
-          "external_id": "zernio_instagram_20260601203507",
-          "external_url": null,
-          "success": true
-        },
-        "tiktok": {
-          "error": null,
-          "external_id": "zernio_tiktok_20260601203507",
-          "external_url": null,
-          "success": true
-        },
-        "youtube": {
-          "error": null,
-          "external_id": "youtube_20260601203507",
-          "external_url": null,
-          "success": true
-        }
-      },
-      "row_id": "manifest.csv:15",
-      "updated_at": "2026-06-01T20:35:07.615631+00:00",
-      "video_file": "videos/inbox/Interview on the Common #2.mov"
-    },
-    "videos/inbox/Visiting World\u2019s End in Hingham, Massachusetts.mp4|2026-06-01T10:00:00-04:00": {
-      "platforms": {
-        "tiktok": {
-          "error": null,
-          "external_id": "zernio_tiktok_20260601203507",
+          "external_id": "6a1def5c8178feb9c2155c7e",
           "external_url": null,
           "success": true
         }
       },
       "row_id": "manifest.csv:5",
-      "updated_at": "2026-06-01T20:35:07.610292+00:00",
-      "video_file": "videos/inbox/Visiting World\u2019s End in Hingham, Massachusetts.mp4"
+      "updated_at": "2026-06-01T20:45:20.071065+00:00",
+      "video_file": "videos/archive/Visiting World\u2019s End in Hingham, Massachusetts.mp4"
     }
   }
 }
