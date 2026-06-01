@@ -1,2 +1,4 @@
 .env
 videos/
+__pycache__/
+DS_Store
