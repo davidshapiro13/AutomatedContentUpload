@@ -1,138 +1,55 @@
 {
   "posts": {
-    "videos/inbox/Day in the Life Studying Abroad in New Zealand.mp4|2026-05-31T10:00:00-04:00": {
+    "videos/inbox/Afternoon at Walden Pond.mp4|2026-06-01T14:00:00-04:00": {
       "platforms": {
         "tiktok": {
           "error": null,
-          "external_id": "6a1c979d04956cf9712d7bf7",
+          "external_id": "zernio_tiktok_20260601203507",
           "external_url": null,
           "success": true
         }
       },
-      "row_id": "manifest.csv:2",
-      "updated_at": "2026-05-31T20:18:40.589892+00:00",
-      "video_file": "videos/inbox/Day in the Life Studying Abroad in New Zealand.mp4"
+      "row_id": "manifest.csv:6",
+      "updated_at": "2026-06-01T20:35:07.611863+00:00",
+      "video_file": "videos/inbox/Afternoon at Walden Pond.mp4"
     },
-    "videos/inbox/Hiking through New Zealand - Study Abroad.mp4|2026-05-31T17:00:00-04:00": {
-      "platforms": {
-        "tiktok": {
-<<<<<<< HEAD
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:3",
-      "updated_at": "2026-06-01T00:03:41.655937+00:00",
-=======
-          "error": null,
-          "external_id": "6a1ca4bd654f28bf42041b84",
-          "external_url": null,
-          "success": true
-        }
-      },
-      "row_id": "manifest.csv:3",
-      "updated_at": "2026-05-31T21:14:39.720981+00:00",
->>>>>>> c09fba3 (update)
-      "video_file": "videos/inbox/Hiking through New Zealand - Study Abroad.mp4"
-    },
-    "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4|2026-05-31T16:54:34-04:00": {
-      "platforms": {
-        "tiktok": {
-<<<<<<< HEAD
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:15",
-      "updated_at": "2026-06-01T00:03:41.655994+00:00",
-=======
-          "error": null,
-          "external_id": "zernio_tiktok_20260531205451",
-          "external_url": null,
-          "success": true
-        }
-      },
-      "row_id": "manifest.csv:15",
-      "updated_at": "2026-05-31T20:54:51.711879+00:00",
->>>>>>> c09fba3 (update)
-      "video_file": "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4"
-    },
-    "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4|2026-05-31T16:54:39-04:00": {
-      "platforms": {
-        "tiktok": {
-<<<<<<< HEAD
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:16",
-      "updated_at": "2026-06-01T00:03:41.656012+00:00",
-=======
-          "error": null,
-          "external_id": "zernio_tiktok_20260531205451",
-          "external_url": null,
-          "success": true
-        }
-      },
-      "row_id": "manifest.csv:16",
-      "updated_at": "2026-05-31T20:54:51.712653+00:00",
->>>>>>> c09fba3 (update)
-      "video_file": "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4"
-    },
-    "videos/inbox/Study Abroad in Wellington, New Zealand.mp4|2026-05-31T18:00:00-04:00": {
-      "platforms": {
-        "tiktok": {
-<<<<<<< HEAD
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:4",
-      "updated_at": "2026-06-01T00:03:41.655962+00:00",
-=======
-          "error": null,
-          "external_id": "6a1cb5825df6c922ead56921",
-          "external_url": null,
-          "success": true
-        }
-      },
-      "row_id": "manifest.csv:4",
-      "updated_at": "2026-05-31T22:26:13.585720+00:00",
->>>>>>> c09fba3 (update)
-      "video_file": "videos/inbox/Study Abroad in Wellington, New Zealand.mp4"
-    },
-    "videos/inbox/example_clip.mp4|2026-05-01T10:00:00-04:00": {
+    "videos/inbox/Interview on the Common #2.mov|2026-06-01T15:15:00-04:00": {
       "platforms": {
         "instagram": {
           "error": null,
-          "external_id": "instagram_20260530015252",
+          "external_id": "zernio_instagram_20260601203507",
           "external_url": null,
           "success": true
         },
         "tiktok": {
           "error": null,
-          "external_id": "tiktok_20260530015252",
+          "external_id": "zernio_tiktok_20260601203507",
           "external_url": null,
           "success": true
         },
         "youtube": {
           "error": null,
-          "external_id": "youtube_20260530015252",
+          "external_id": "youtube_20260601203507",
           "external_url": null,
           "success": true
         }
       },
-      "row_id": "manifest.csv:2",
-      "updated_at": "2026-05-30T01:52:52.959493+00:00",
-      "video_file": "videos/inbox/example_clip.mp4"
+      "row_id": "manifest.csv:15",
+      "updated_at": "2026-06-01T20:35:07.615631+00:00",
+      "video_file": "videos/inbox/Interview on the Common #2.mov"
+    },
+    "videos/inbox/Visiting World\u2019s End in Hingham, Massachusetts.mp4|2026-06-01T10:00:00-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": null,
+          "external_id": "zernio_tiktok_20260601203507",
+          "external_url": null,
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:5",
+      "updated_at": "2026-06-01T20:35:07.610292+00:00",
+      "video_file": "videos/inbox/Visiting World\u2019s End in Hingham, Massachusetts.mp4"
     }
   }
 }

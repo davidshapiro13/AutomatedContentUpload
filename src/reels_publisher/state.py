@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from datetime import datetime, timezone
+from json import JSONDecodeError
 from pathlib import Path
 from typing import Dict
 
@@ -11,8 +12,12 @@ from .models import ManifestRow, PostResult
 def load_state(path: Path) -> Dict:
     if not path.exists():
         return {"posts": {}}
-    with path.open("r", encoding="utf-8") as handle:
-        data = json.load(handle)
+    try:
+        with path.open("r", encoding="utf-8") as handle:
+            data = json.load(handle)
+    except JSONDecodeError:
+        # Keep automation running even if a bad merge corrupts state JSON.
+        return {"posts": {}}
     if "posts" not in data or not isinstance(data["posts"], dict):
         return {"posts": {}}
     return data
