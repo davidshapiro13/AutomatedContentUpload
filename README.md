@@ -73,7 +73,7 @@ Optional columns:
 - `zernio_youtube_account_id` (optional per-row override for YouTube account)
 - `youtube_title`
 - `youtube_description`
-- `youtube_privacy` (`private`, `unlisted`, `public`)
+- `youtube_privacy` (`public`, `unlisted`, `private`; default `public`)
 
 Backward compatibility:
 - If `zernio_media_url` is missing, parser will fall back to `tiktok_video_url` or `instagram_video_url` if present.

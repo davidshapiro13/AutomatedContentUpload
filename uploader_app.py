@@ -238,7 +238,7 @@ def main() -> None:
                     "zernio_profile_id": "",
                     "youtube_title": youtube_title.strip(),
                     "youtube_description": youtube_description.strip(),
-                    "youtube_privacy": "private",
+                    "youtube_privacy": "public",
                 }
                 append_manifest_row(row)
                 commit_and_push(f"Add reel: {Path(video.name).name} @ {scheduled_at.strip()}")

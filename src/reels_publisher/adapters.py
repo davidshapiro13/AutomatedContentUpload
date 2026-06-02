@@ -330,7 +330,7 @@ class YouTubeDirectAdapter:
                 "categoryId": os.getenv("YOUTUBE_CATEGORY_ID", "22").strip() or "22",
             },
             "status": {
-                "privacyStatus": row.youtube_privacy or "private",
+                "privacyStatus": row.youtube_privacy or "public",
             },
         }
 

@@ -57,7 +57,7 @@ def load_manifest(path: Path) -> List[ManifestRow]:
         for index, raw in enumerate(reader, start=2):
             row_id = f"{path.name}:{index}"
             status = (raw.get("status") or "").strip().lower()
-            youtube_privacy = (raw.get("youtube_privacy") or "private").strip().lower()
+            youtube_privacy = (raw.get("youtube_privacy") or "public").strip().lower()
             item = ManifestRow(
                 row_id=row_id,
                 video_file=Path((raw.get("video_file") or "").strip()),

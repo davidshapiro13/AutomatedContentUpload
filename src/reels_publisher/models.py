@@ -27,7 +27,7 @@ class ManifestRow:
     zernio_youtube_account_id: str = ""
     youtube_title: str = ""
     youtube_description: str = ""
-    youtube_privacy: str = "private"
+    youtube_privacy: str = "public"
 
 
 @dataclass
