@@ -13,7 +13,59 @@
       "updated_at": "2026-06-02T00:09:44.455589+00:00",
       "video_file": "videos/archive/Afternoon at Walden Pond.mp4"
     },
-    "videos/archive/Visiting World\u2019s End in Hingham, Massachusetts.mp4|2026-06-01T16:00:00-04:00": {
+    "videos/inbox/Hiking through New Zealand - Study Abroad.mp4|2026-05-31T17:00:00-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": null,
+          "external_id": "6a1ca4bd654f28bf42041b84",
+          "external_url": null,
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:3",
+      "updated_at": "2026-05-31T21:14:39.720981+00:00",
+      "video_file": "videos/inbox/Hiking through New Zealand - Study Abroad.mp4"
+    },
+    "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4|2026-05-31T16:54:34-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": null,
+          "external_id": "zernio_tiktok_20260531205451",
+          "external_url": null,
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:15",
+      "updated_at": "2026-05-31T20:54:51.711879+00:00",
+      "video_file": "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4"
+    },
+    "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4|2026-05-31T16:54:39-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": null,
+          "external_id": "zernio_tiktok_20260531205451",
+          "external_url": null,
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:16",
+      "updated_at": "2026-05-31T20:54:51.712653+00:00",
+      "video_file": "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4"
+    },
+    "videos/inbox/Study Abroad in Wellington, New Zealand.mp4|2026-05-31T18:00:00-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": null,
+          "external_id": "6a1cb5825df6c922ead56921",
+          "external_url": null,
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:4",
+      "updated_at": "2026-05-31T22:26:13.585720+00:00",
+      "video_file": "videos/inbox/Study Abroad in Wellington, New Zealand.mp4"
+    },
+    "videos/inbox/example_clip.mp4|2026-05-01T10:00:00-04:00": {
       "platforms": {
         "tiktok": {
           "error": null,
