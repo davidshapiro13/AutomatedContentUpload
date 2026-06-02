@@ -1,5 +1,18 @@
 {
   "posts": {
+    "videos/inbox/Bike with us on the Minuteman Trail to historical Lexington.mp4|2026-06-02T14:00:00-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": "Missing ZERNIO_API_KEY",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        }
+      },
+      "row_id": "manifest.csv:9",
+      "updated_at": "2026-06-02T20:24:16.252839+00:00",
+      "video_file": "videos/inbox/Bike with us on the Minuteman Trail to historical Lexington.mp4"
+    },
     "videos/inbox/Day Trip to Plum Island!.mp4|2026-06-02T10:00:00-04:00": {
       "platforms": {
         "tiktok": {
@@ -10,7 +23,7 @@
         }
       },
       "row_id": "manifest.csv:8",
-      "updated_at": "2026-06-02T17:16:35.006601+00:00",
+      "updated_at": "2026-06-02T20:24:16.252810+00:00",
       "video_file": "videos/inbox/Day Trip to Plum Island!.mp4"
     },
     "videos/inbox/Hiking through New Zealand - Study Abroad.mp4|2026-05-31T17:00:00-04:00": {
@@ -76,6 +89,31 @@
       "row_id": "manifest.csv:15",
       "updated_at": "2026-06-02T02:28:30.892601+00:00",
       "video_file": "videos/inbox/Interview on the Common #2.mov"
+    },
+    "videos/inbox/Interview on the Common #3.mov|2026-06-02T15:15:00-04:00": {
+      "platforms": {
+        "instagram": {
+          "error": "Missing ZERNIO_API_KEY",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        },
+        "tiktok": {
+          "error": "Missing ZERNIO_API_KEY",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        },
+        "youtube": {
+          "error": "Missing YOUTUBE_ACCESS_TOKEN",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        }
+      },
+      "row_id": "manifest.csv:17",
+      "updated_at": "2026-06-02T20:24:16.252893+00:00",
+      "video_file": "videos/inbox/Interview on the Common #3.mov"
     },
     "videos/inbox/Study Abroad in Wellington, New Zealand.mp4|2026-05-31T18:00:00-04:00": {
       "platforms": {
