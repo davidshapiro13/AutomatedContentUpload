@@ -85,7 +85,11 @@ Backward compatibility:
 - `ZERNIO_TIKTOK_ACCOUNT_ID` (recommended for multi-account setups)
 - `ZERNIO_INSTAGRAM_ACCOUNT_ID` (recommended for multi-account setups)
 - `ZERNIO_YOUTUBE_ACCOUNT_ID` (recommended for multi-account setups)
-- `YOUTUBE_ACCESS_TOKEN` (required for direct YouTube upload)
+- `YOUTUBE_ACCESS_TOKEN` (required for direct YouTube upload if auto-refresh is off)
+- `YOUTUBE_AUTO_REFRESH` (`1` to refresh before each direct YouTube upload)
+- `YOUTUBE_REFRESH_TOKEN` (required when `YOUTUBE_AUTO_REFRESH=1`)
+- `YOUTUBE_CLIENT_ID` (required when `YOUTUBE_AUTO_REFRESH=1`)
+- `YOUTUBE_CLIENT_SECRET` (required when `YOUTUBE_AUTO_REFRESH=1`)
 - `YOUTUBE_CATEGORY_ID` (optional, default `22`)
 
 Auto-upload settings (optional, used when `zernio_media_url` is blank):

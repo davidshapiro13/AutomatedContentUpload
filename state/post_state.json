@@ -1,18 +1,5 @@
 {
   "posts": {
-    "videos/archive/Afternoon at Walden Pond.mp4|2026-06-01T20:00:00-04:00": {
-      "platforms": {
-        "tiktok": {
-          "error": "Missing video file: videos/archive/Afternoon at Walden Pond.mp4",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:6",
-      "updated_at": "2026-06-02T02:02:02.329733+00:00",
-      "video_file": "videos/archive/Afternoon at Walden Pond.mp4"
-    },
     "videos/inbox/Hiking through New Zealand - Study Abroad.mp4|2026-05-31T17:00:00-04:00": {
       "platforms": {
         "tiktok": {
@@ -51,6 +38,31 @@
       "row_id": "manifest.csv:16",
       "updated_at": "2026-05-31T20:54:51.712653+00:00",
       "video_file": "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4"
+    },
+    "videos/inbox/Interview on the Common #2.mov|2026-06-01T22:06:09-04:00": {
+      "platforms": {
+        "instagram": {
+          "error": null,
+          "external_id": "6a1e3acb322ada9185b793d0",
+          "external_url": null,
+          "success": true
+        },
+        "tiktok": {
+          "error": null,
+          "external_id": "6a1e3ac74f6479b79962feb7",
+          "external_url": null,
+          "success": true
+        },
+        "youtube": {
+          "error": null,
+          "external_id": "7rQmmfr95UM",
+          "external_url": "https://www.youtube.com/watch?v=7rQmmfr95UM",
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:15",
+      "updated_at": "2026-06-02T02:28:30.892601+00:00",
+      "video_file": "videos/inbox/Interview on the Common #2.mov"
     },
     "videos/inbox/Study Abroad in Wellington, New Zealand.mp4|2026-05-31T18:00:00-04:00": {
       "platforms": {

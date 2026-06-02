@@ -5,9 +5,10 @@ import os
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
-from uuid import uuid4
 from urllib.error import HTTPError, URLError
+from urllib.parse import urlencode
 from urllib.request import Request, urlopen
+from uuid import uuid4
 
 from .models import ManifestRow, PostResult
 
@@ -171,6 +172,9 @@ class ZernioAdapter:
 
 
 class YouTubeDirectAdapter:
+    TRUTHY = {"1", "true", "yes", "on"}
+    FALSEY = {"0", "false", "no", "off", ""}
+
     @staticmethod
     def _stub_external_id() -> str:
         ts = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
@@ -188,6 +192,83 @@ class YouTubeDirectAdapter:
             raise RuntimeError(f"{exc.code} {exc.reason}: {details}") from exc
         except URLError as exc:
             raise RuntimeError(f"Network error: {exc.reason}") from exc
+
+    @staticmethod
+    def _http_form(method: str, url: str, *, payload: dict[str, str]) -> dict:
+        data = urlencode(payload).encode("utf-8")
+        req = Request(
+            url=url,
+            data=data,
+            headers={
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Accept": "application/json",
+            },
+            method=method,
+        )
+        try:
+            with urlopen(req, timeout=60) as resp:
+                raw = resp.read().decode("utf-8")
+            return json.loads(raw) if raw else {}
+        except HTTPError as exc:
+            details = exc.read().decode("utf-8", errors="replace")
+            raise RuntimeError(f"{exc.code} {exc.reason}: {details}") from exc
+        except URLError as exc:
+            raise RuntimeError(f"Network error: {exc.reason}") from exc
+
+    @classmethod
+    def _refresh_enabled(cls) -> bool:
+        raw = os.getenv("YOUTUBE_AUTO_REFRESH", "").strip()
+        if raw.lower() in cls.FALSEY:
+            return False
+        if raw.lower() in cls.TRUTHY:
+            return True
+        # Backward-compatible with a refresh token accidentally stored in this var.
+        return True
+
+    @classmethod
+    def _refresh_token(cls) -> str:
+        refresh_token = os.getenv("YOUTUBE_REFRESH_TOKEN", "").strip()
+        if refresh_token:
+            return refresh_token
+
+        auto_refresh = os.getenv("YOUTUBE_AUTO_REFRESH", "").strip()
+        if auto_refresh.lower() not in cls.TRUTHY | cls.FALSEY:
+            return auto_refresh
+        return ""
+
+    def _access_token(self) -> str:
+        if not self._refresh_enabled():
+            return os.getenv("YOUTUBE_ACCESS_TOKEN", "").strip()
+
+        refresh_token = self._refresh_token()
+        client_id = os.getenv("YOUTUBE_CLIENT_ID", "").strip()
+        client_secret = os.getenv("YOUTUBE_CLIENT_SECRET", "").strip()
+        missing = [
+            name
+            for name, value in {
+                "YOUTUBE_REFRESH_TOKEN": refresh_token,
+                "YOUTUBE_CLIENT_ID": client_id,
+                "YOUTUBE_CLIENT_SECRET": client_secret,
+            }.items()
+            if not value
+        ]
+        if missing:
+            raise RuntimeError(f"Missing YouTube OAuth refresh config: {', '.join(missing)}")
+
+        data = self._http_form(
+            "POST",
+            "https://oauth2.googleapis.com/token",
+            payload={
+                "client_id": client_id,
+                "client_secret": client_secret,
+                "refresh_token": refresh_token,
+                "grant_type": "refresh_token",
+            },
+        )
+        access_token = str(data.get("access_token") or "").strip()
+        if not access_token:
+            raise RuntimeError(f"Unexpected YouTube token refresh response: {data}")
+        return access_token
 
     @staticmethod
     def _build_multipart_body(metadata: dict, media_bytes: bytes, media_content_type: str) -> tuple[bytes, str]:
@@ -212,7 +293,10 @@ class YouTubeDirectAdapter:
         if ctx.dry_run:
             return PostResult(True, "youtube", external_id=self._stub_external_id())
 
-        access_token = os.getenv("YOUTUBE_ACCESS_TOKEN", "").strip()
+        try:
+            access_token = self._access_token()
+        except Exception as exc:  # noqa: BLE001
+            return PostResult(False, "youtube", error=str(exc))
         if not access_token:
             return PostResult(False, "youtube", error="Missing YOUTUBE_ACCESS_TOKEN")
 
