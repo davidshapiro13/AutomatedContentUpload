@@ -101,7 +101,6 @@ def _discard_local_state_changes() -> None:
 
 def commit_and_push(message: str) -> None:
     _discard_local_state_changes()
-    _git("pull", "--rebase")
     _git("add", str(MANIFEST_PATH.relative_to(REPO_ROOT)))
     commit_proc = subprocess.run(
         ["git", "commit", "-m", message],
@@ -117,13 +116,14 @@ def commit_and_push(message: str) -> None:
             commit_proc.returncode, commit_proc.args, output=commit_proc.stdout, stderr=commit_proc.stderr
         )
 
+    _git("pull", "--rebase", "--autostash")
     push_proc = subprocess.run(["git", "push"], cwd=REPO_ROOT, text=True, capture_output=True)
     if push_proc.returncode == 0:
         return
 
     push_text = f"{push_proc.stdout}\n{push_proc.stderr}".lower()
     if "non-fast-forward" in push_text or "fetch first" in push_text or "rejected" in push_text:
-        _git("pull", "--rebase")
+        _git("pull", "--rebase", "--autostash")
         _git("push")
         return
 

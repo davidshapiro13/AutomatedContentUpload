@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
+from urllib.parse import quote, urlencode
 from urllib.request import Request, urlopen
 from uuid import uuid4
 
@@ -56,11 +56,12 @@ class ZernioAdapter:
 
     @staticmethod
     def _build_public_url(bucket: str, key: str, region: str, endpoint_url: str, public_base_url: str) -> str:
+        encoded_key = quote(key, safe="/")
         if public_base_url:
-            return f"{public_base_url.rstrip('/')}/{key}"
+            return f"{public_base_url.rstrip('/')}/{encoded_key}"
         if endpoint_url:
-            return f"{endpoint_url.rstrip('/')}/{bucket}/{key}"
-        return f"https://{bucket}.s3.{region}.amazonaws.com/{key}"
+            return f"{endpoint_url.rstrip('/')}/{bucket}/{encoded_key}"
+        return f"https://{bucket}.s3.{region}.amazonaws.com/{encoded_key}"
 
     @staticmethod
     def _account_id_for_platform(row: ManifestRow, platform: str) -> str:
@@ -112,7 +113,20 @@ class ZernioAdapter:
         extra_args = {"ContentType": "video/mp4"}
         if acl:
             extra_args["ACL"] = acl
-        client.upload_file(str(local_path), bucket, key, ExtraArgs=extra_args)
+        try:
+            client.upload_file(str(local_path), bucket, key, ExtraArgs=extra_args)
+        except Exception as exc:  # noqa: BLE001
+            if "not seekable" not in str(exc):
+                raise
+            put_args = {
+                "Bucket": bucket,
+                "Key": key,
+                "Body": local_path.read_bytes(),
+                "ContentType": extra_args["ContentType"],
+            }
+            if acl:
+                put_args["ACL"] = acl
+            client.put_object(**put_args)
         media_url = self._build_public_url(bucket, key, region, endpoint_url, public_base_url)
         ctx.media_url_cache[row.row_id] = media_url
         return media_url
