@@ -1,5 +1,18 @@
 {
   "posts": {
+    "videos/inbox/American Revolutionary War - 250th Anniversary | Lexington Massachusetts USA.mp4|2026-06-02T18:00:00-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": "Missing ZERNIO_API_KEY",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        }
+      },
+      "row_id": "manifest.csv:10",
+      "updated_at": "2026-06-02T22:33:04.768931+00:00",
+      "video_file": "videos/inbox/American Revolutionary War - 250th Anniversary | Lexington Massachusetts USA.mp4"
+    },
     "videos/inbox/Bike with us on the Minuteman Trail to historical Lexington.mp4|2026-06-02T14:00:00-04:00": {
       "platforms": {
         "tiktok": {
@@ -10,7 +23,7 @@
         }
       },
       "row_id": "manifest.csv:9",
-      "updated_at": "2026-06-02T20:24:16.252839+00:00",
+      "updated_at": "2026-06-02T22:33:04.768910+00:00",
       "video_file": "videos/inbox/Bike with us on the Minuteman Trail to historical Lexington.mp4"
     },
     "videos/inbox/Day Trip to Plum Island!.mp4|2026-06-02T10:00:00-04:00": {
@@ -23,7 +36,7 @@
         }
       },
       "row_id": "manifest.csv:8",
-      "updated_at": "2026-06-02T20:24:16.252810+00:00",
+      "updated_at": "2026-06-02T22:33:04.768882+00:00",
       "video_file": "videos/inbox/Day Trip to Plum Island!.mp4"
     },
     "videos/inbox/Hiking through New Zealand - Study Abroad.mp4|2026-05-31T17:00:00-04:00": {
@@ -112,7 +125,7 @@
         }
       },
       "row_id": "manifest.csv:17",
-      "updated_at": "2026-06-02T20:24:16.252893+00:00",
+      "updated_at": "2026-06-02T22:33:04.768978+00:00",
       "video_file": "videos/inbox/Interview on the Common #3.mov"
     },
     "videos/inbox/Study Abroad in Wellington, New Zealand.mp4|2026-05-31T18:00:00-04:00": {
