@@ -1,5 +1,18 @@
 {
   "posts": {
+    "videos/archive/Afternoon at Walden Pond.mp4|2026-06-01T20:00:00-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": "Missing ZERNIO_API_KEY",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        }
+      },
+      "row_id": "manifest.csv:6",
+      "updated_at": "2026-06-02T00:09:44.455589+00:00",
+      "video_file": "videos/archive/Afternoon at Walden Pond.mp4"
+    },
     "videos/archive/Visiting World\u2019s End in Hingham, Massachusetts.mp4|2026-06-01T16:00:00-04:00": {
       "platforms": {
         "tiktok": {
