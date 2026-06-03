@@ -128,6 +128,19 @@
       "updated_at": "2026-06-03T00:16:29.790876+00:00",
       "video_file": "videos/inbox/Interview on the Common #3.mov"
     },
+    "videos/inbox/Life moves fast.mp4|2026-06-03T10:00:00-04:00": {
+      "platforms": {
+        "tiktok": {
+          "error": "Missing ZERNIO_API_KEY",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        }
+      },
+      "row_id": "manifest.csv:11",
+      "updated_at": "2026-06-03T15:13:42.126815+00:00",
+      "video_file": "videos/inbox/Life moves fast.mp4"
+    },
     "videos/inbox/Study Abroad in Wellington, New Zealand.mp4|2026-05-31T18:00:00-04:00": {
       "platforms": {
         "tiktok": {
