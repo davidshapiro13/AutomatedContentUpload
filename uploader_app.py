@@ -3,7 +3,7 @@ from __future__ import annotations
 import csv
 import os
 import subprocess
-from datetime import datetime, timedelta
+from datetime import date, datetime, time, timedelta
 from pathlib import Path
 from typing import Dict
 from urllib.parse import quote
@@ -132,8 +132,16 @@ def commit_and_push(message: str) -> None:
     )
 
 
-def default_scheduled_at() -> str:
-    return (datetime.now().astimezone() + timedelta(minutes=10)).replace(microsecond=0).isoformat()
+def default_schedule_date() -> date:
+    return (datetime.now(EASTERN_TZ) + timedelta(days=1)).date()
+
+
+def default_schedule_time() -> time:
+    return time(hour=15, minute=30)
+
+
+def build_scheduled_at(scheduled_date: date, scheduled_time: time) -> str:
+    return datetime.combine(scheduled_date, scheduled_time, tzinfo=EASTERN_TZ).replace(microsecond=0).isoformat()
 
 
 def _parse_iso_datetime(value: str) -> datetime | None:
@@ -205,7 +213,19 @@ def main() -> None:
         video = st.file_uploader("Video file", type=["mp4", "mov", "m4v", "webm"])
         caption = st.text_area("Caption", height=100)
         hashtags = st.text_input("Hashtags", placeholder="#travel #shorts")
-        scheduled_at = st.text_input("Scheduled at (ISO with timezone)", value=default_scheduled_at())
+        col_date, col_time = st.columns(2)
+        scheduled_date = col_date.date_input(
+            "Scheduled date",
+            value=default_schedule_date(),
+            min_value=datetime.now(EASTERN_TZ).date(),
+            key="scheduled_date",
+        )
+        scheduled_time = col_time.time_input(
+            "Scheduled time",
+            value=default_schedule_time(),
+            step=timedelta(minutes=15),
+            key="scheduled_time",
+        )
         col1, col2, col3 = st.columns(3)
         post_to_tiktok = col1.checkbox("TikTok", value=True)
         post_to_instagram = col2.checkbox("Instagram", value=False)
@@ -215,10 +235,14 @@ def main() -> None:
         submitted = st.form_submit_button("Upload + Add + Push")
 
     if submitted:
+        scheduled_at = build_scheduled_at(scheduled_date, scheduled_time)
+        scheduled_dt = datetime.fromisoformat(scheduled_at)
         if video is None:
             st.error("Select a video file.")
         elif not (post_to_tiktok or post_to_instagram or post_to_youtube):
             st.error("Select at least one platform.")
+        elif scheduled_dt <= datetime.now(EASTERN_TZ):
+            st.error("Scheduled time must be in the future.")
         else:
             try:
                 media = upload_to_r2(video.name, video.getvalue())
