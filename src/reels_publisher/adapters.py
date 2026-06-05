@@ -1,12 +1,13 @@
 from __future__ import annotations
 
 import json
+import mimetypes
 import os
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import quote, urlencode
+from urllib.parse import quote, urlencode, urlparse
 from urllib.request import Request, urlopen
 from uuid import uuid4
 
@@ -303,6 +304,37 @@ class YouTubeDirectAdapter:
         )
         return body, boundary
 
+    @staticmethod
+    def _media_content_type(source_name: str) -> str:
+        guessed, _ = mimetypes.guess_type(source_name)
+        return guessed or "video/mp4"
+
+    @staticmethod
+    def _download_media(url: str) -> bytes:
+        req = Request(url=url, headers={"Accept": "video/*,*/*"}, method="GET")
+        try:
+            with urlopen(req, timeout=300) as resp:
+                return resp.read()
+        except HTTPError as exc:
+            details = exc.read().decode("utf-8", errors="replace")
+            raise RuntimeError(f"Failed to download YouTube media source: {exc.code} {exc.reason}: {details}") from exc
+        except URLError as exc:
+            raise RuntimeError(f"Failed to download YouTube media source: {exc.reason}") from exc
+
+    def _media_bytes(self, row: ManifestRow, ctx: AdapterContext) -> tuple[bytes, str, str]:
+        local_path = ctx.repo_root / row.video_file
+        if local_path.exists():
+            source_name = local_path.name
+            return local_path.read_bytes(), source_name, self._media_content_type(source_name)
+
+        media_url = row.zernio_media_url.strip()
+        if not media_url:
+            raise RuntimeError(f"Missing video file: {row.video_file}")
+
+        source_path = Path(urlparse(media_url).path)
+        source_name = source_path.name or row.video_file.name or "video.mp4"
+        return self._download_media(media_url), source_name, self._media_content_type(source_name)
+
     def post(self, row: ManifestRow, ctx: AdapterContext) -> PostResult:
         if ctx.dry_run:
             return PostResult(True, "youtube", external_id=self._stub_external_id())
@@ -314,11 +346,12 @@ class YouTubeDirectAdapter:
         if not access_token:
             return PostResult(False, "youtube", error="Missing YOUTUBE_ACCESS_TOKEN")
 
-        local_path = ctx.repo_root / row.video_file
-        if not local_path.exists():
-            return PostResult(False, "youtube", error=f"Missing video file: {row.video_file}")
+        try:
+            media_bytes, source_name, media_content_type = self._media_bytes(row, ctx)
+        except Exception as exc:  # noqa: BLE001
+            return PostResult(False, "youtube", error=str(exc))
 
-        title = (row.youtube_title or row.caption or local_path.stem).strip()
+        title = (row.youtube_title or row.caption or Path(source_name).stem).strip()
         description = row.youtube_description.strip() or f"{row.caption} {row.hashtags}".strip()
         if "#shorts" not in description.lower():
             description = f"{description}\n#Shorts".strip()
@@ -334,8 +367,7 @@ class YouTubeDirectAdapter:
             },
         }
 
-        media_bytes = local_path.read_bytes()
-        body, boundary = self._build_multipart_body(metadata, media_bytes, "video/mp4")
+        body, boundary = self._build_multipart_body(metadata, media_bytes, media_content_type)
         headers = {
             "Authorization": f"Bearer {access_token}",
             "Content-Type": f"multipart/related; boundary={boundary}",
