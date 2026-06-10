@@ -1,361 +1,131 @@
 {
   "posts": {
-    "videos/archive/Interview on the Common #4.mov|2026-06-04T16:45:53-04:00": {
-      "platforms": {
-        "youtube": {
-          "error": null,
-          "external_id": "VgCua0qZquo",
-          "external_url": "https://www.youtube.com/watch?v=VgCua0qZquo",
-          "success": true
-        }
-      },
-      "row_id": "manifest.csv:18",
-      "updated_at": "2026-06-05T03:11:18.540549+00:00",
-      "video_file": "videos/archive/Interview on the Common #4.mov"
-    },
-    "videos/archive/Interview on the Common #5.mov|2026-06-05T15:30:00-04:00": {
-      "platforms": {
-        "instagram": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        },
-        "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        },
-        "youtube": {
-          "error": "Missing YOUTUBE_ACCESS_TOKEN",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:19",
-      "updated_at": "2026-06-11T00:17:46.874319+00:00",
-      "video_file": "videos/archive/Interview on the Common #5.mov"
-    },
-    "videos/inbox/American Revolutionary War - 250th Anniversary | Lexington Massachusetts USA.mp4|2026-06-02T18:00:00-04:00": {
-      "platforms": {
-        "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:10",
-      "updated_at": "2026-06-03T00:16:29.790828+00:00",
-      "video_file": "videos/inbox/American Revolutionary War - 250th Anniversary | Lexington Massachusetts USA.mp4"
-    },
-    "videos/inbox/Bike with us on the Minuteman Trail to historical Lexington.mp4|2026-06-02T14:00:00-04:00": {
-      "platforms": {
-        "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:9",
-      "updated_at": "2026-06-03T00:16:29.790809+00:00",
-      "video_file": "videos/inbox/Bike with us on the Minuteman Trail to historical Lexington.mp4"
-    },
-    "videos/inbox/Day Trip to Plum Island!.mp4|2026-06-02T10:00:00-04:00": {
-      "platforms": {
-        "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:8",
-      "updated_at": "2026-06-03T00:16:29.790782+00:00",
-      "video_file": "videos/inbox/Day Trip to Plum Island!.mp4"
-    },
-    "videos/inbox/Hiking through New Zealand - Study Abroad.mp4|2026-05-31T17:00:00-04:00": {
-      "platforms": {
-        "tiktok": {
-          "error": null,
-          "external_id": "6a1ca4bd654f28bf42041b84",
-          "external_url": null,
-          "success": true
-        }
-      },
-      "row_id": "manifest.csv:3",
-      "updated_at": "2026-05-31T21:14:39.720981+00:00",
-      "video_file": "videos/inbox/Hiking through New Zealand - Study Abroad.mp4"
-    },
-    "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4|2026-05-31T16:54:34-04:00": {
-      "platforms": {
-        "tiktok": {
-          "error": null,
-          "external_id": "zernio_tiktok_20260531205451",
-          "external_url": null,
-          "success": true
-        }
-      },
-      "row_id": "manifest.csv:15",
-      "updated_at": "2026-05-31T20:54:51.711879+00:00",
-      "video_file": "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4"
-    },
-    "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4|2026-05-31T16:54:39-04:00": {
-      "platforms": {
-        "tiktok": {
-          "error": null,
-          "external_id": "zernio_tiktok_20260531205451",
-          "external_url": null,
-          "success": true
-        }
-      },
-      "row_id": "manifest.csv:16",
-      "updated_at": "2026-05-31T20:54:51.712653+00:00",
-      "video_file": "videos/inbox/How to Fix Window Shades with No Experience | DIY.mp4"
-    },
-    "videos/inbox/Interview on the Common #2.mov|2026-06-01T22:06:09-04:00": {
-      "platforms": {
-        "instagram": {
-          "error": null,
-          "external_id": "6a1e3acb322ada9185b793d0",
-          "external_url": null,
-          "success": true
-        },
-        "tiktok": {
-          "error": null,
-          "external_id": "6a1e3ac74f6479b79962feb7",
-          "external_url": null,
-          "success": true
-        },
-        "youtube": {
-          "error": null,
-          "external_id": "7rQmmfr95UM",
-          "external_url": "https://www.youtube.com/watch?v=7rQmmfr95UM",
-          "success": true
-        }
-      },
-      "row_id": "manifest.csv:15",
-      "updated_at": "2026-06-02T02:28:30.892601+00:00",
-      "video_file": "videos/inbox/Interview on the Common #2.mov"
-    },
-    "videos/inbox/Interview on the Common #3.mov|2026-06-02T15:15:00-04:00": {
-      "platforms": {
-        "instagram": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        },
-        "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        },
-        "youtube": {
-          "error": "Missing YOUTUBE_ACCESS_TOKEN",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:17",
-      "updated_at": "2026-06-03T00:16:29.790876+00:00",
-      "video_file": "videos/inbox/Interview on the Common #3.mov"
-    },
-    "videos/inbox/Interview on the Common #4.mov|2026-06-03T15:30:00-04:00": {
-      "platforms": {
-        "instagram": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        },
-        "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        },
-        "youtube": {
-          "error": "Missing YOUTUBE_ACCESS_TOKEN",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:18",
-      "updated_at": "2026-06-04T02:07:10.006096+00:00",
-      "video_file": "videos/inbox/Interview on the Common #4.mov"
-    },
-    "videos/inbox/Interview on the Common #4.mov|2026-06-04T16:45:53-04:00": {
-      "platforms": {
-        "instagram": {
-          "error": "409 Conflict: {\"error\":\"This exact content is already scheduled, publishing, or was posted to this account within the last 24 hours.\",\"details\":{\"accountId\":\"6a1ba8342b2567671a786d58\",\"platform\":\"instagram\",\"existingPostId\":\"6a220a9c9fb7935c8b08f5d3\"}} | media_url=https://pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev/reels/Interview_on_the_Common_%234-20260604163553.mov",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        },
-        "tiktok": {
-          "error": "409 Conflict: {\"error\":\"This exact content is already scheduled, publishing, or was posted to this account within the last 24 hours.\",\"details\":{\"accountId\":\"6a1b09222b2567671a73a4cc\",\"platform\":\"tiktok\",\"existingPostId\":\"6a220a98006aa67a3f6d2b60\"}} | media_url=https://pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev/reels/Interview_on_the_Common_%234-20260604163553.mov",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        },
-        "youtube": {
-          "error": "Failed to download YouTube media source: 403 Forbidden: <!doctype html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 7]>    <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 8]>    <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if gt IE 8]><!-->\n<html class=\"no-js\" lang=\"en-US\">\n    <!--<![endif]-->\n    <head>\n        <title>Access denied | pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev used Cloudflare to restrict access | pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev | Cloudflare</title>\n        <meta charset=\"UTF-8\" />\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />\n<link rel=\"stylesheet\" id=\"cf_styles-css\" href=\"/cdn-cgi/styles/main.css\" /> <script>\n  (function(){if(document.addEventListener&&window.XMLHttpRequest&&JSON&&JSON.stringify){var e=function(a){var c=document.getElementById(\"error-feedback-survey\"),d=document.getElementById(\"error-feedback-success\"),b=new XMLHttpRequest;a={event:\"feedback clicked\",properties:{errorCode: 1010 },helpful:a,version: 1 };b.open(\"POST\",\"https://sparrow.cloudflare.com/api/v1/event\");b.setRequestHeader(\"Content-Type\",\"application/json\");b.setRequestHeader(\"Sparrow-Source-Key\",\"c771f0e4b54944bebf4261d44bd79a1e\");\nb.send(JSON.stringify(a));c.classList.add(\"feedback-hidden\");d.classList.remove(\"feedback-hidden\")};document.addEventListener(\"DOMContentLoaded\",function(){var a=document.getElementById(\"error-feedback\"),c=document.getElementById(\"feedback-button-yes\"),d=document.getElementById(\"feedback-button-no\");\"classList\"in a&&(a.classList.remove(\"feedback-hidden\"),c.addEventListener(\"click\",function(){e(!0)}),d.addEventListener(\"click\",function(){e(!1)}))})}})();\n</script>\n        <script\n            defer\n            src=\"https://performance.radar.cloudflare.com/beacon.js\"\n        ></script>\n    </head>\n    <body>\n        <div id=\"cf-wrapper\">\n            <div\n                class=\"cf-alert cf-alert-error cf-cookie-error hidden\"\n                id=\"cookie-alert\"\n                data-translate=\"enable_cookies\"\n            >\n                Please enable cookies.\n            </div>\n            <div id=\"cf-error-details\" class=\"p-0\">\n                <header\n                    class=\"mx-auto pt-10 lg:pt-6 lg:px-8 w-240 lg:w-full mb-15 antialiased\"\n                >\n                    <h1\n                        class=\"inline-block md:block mr-2 md:mb-2 font-light text-60 md:text-3xl text-black-dark leading-tight\"\n                    >\n                        <span data-translate=\"error\">Error</span>\n                        <span>1010</span>\n                    </h1>\n                    <span\n                        class=\"inline-block md:block heading-ray-id font-mono text-15 lg:text-sm lg:leading-relaxed\"\n                        >Ray ID: a06bf5863fdaa115 &bull;</span\n                    >\n                    <span\n                        class=\"inline-block md:block heading-ray-id font-mono text-15 lg:text-sm lg:leading-relaxed\"\n                        >2026-06-05 03:06:02 UTC</span\n                    >\n                    <h2\n                        class=\"text-gray-600 leading-1.3 text-3xl lg:text-2xl font-light\"\n                    >\n                        Access denied\n                    </h2>\n                </header>\n                \n                \n                <section class=\"w-240 lg:w-full mx-auto mb-8 lg:px-8\">\n                    <div id=\"what-happened-section\" class=\"w-1/2 md:w-full\">\n                        <h2\n                            class=\"text-3xl leading-tight font-normal mb-4 text-black-dark antialiased\"\n                            data-translate=\"what_happened\"\n                        >\n                            What happened?\n                        </h2>\n                        \n    <p>The owner of this website (pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev) has banned your access based on your browser's signature (a06bf5863fdaa115-ua45).</p>\n\n                        \n                        <p>\n                            Please see\n                            <a\n                                rel=\"noopener noreferrer\"\n                                href=\"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1010/\"\n                                target=\"_blank\"\n                                >https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1010/</a\n                            >\n                            for more details.\n                        </p>\n                        \n                    </div>\n\n                    \n                </section>\n                \n\n                <div class=\"feedback-hidden py-8 text-center\" id=\"error-feedback\">\n    <div id=\"error-feedback-survey\" class=\"footer-line-wrapper\">\n        Was this page helpful?\n        <button\n            class=\"border border-solid bg-white cf-button cursor-pointer ml-4 px-4 py-2 rounded\"\n            id=\"feedback-button-yes\"\n            type=\"button\"\n        >\n            Yes\n        </button>\n        <button\n            class=\"border border-solid bg-white cf-button cursor-pointer ml-4 px-4 py-2 rounded\"\n            id=\"feedback-button-no\"\n            type=\"button\"\n        >\n            No\n        </button>\n    </div>\n    <div class=\"feedback-success feedback-hidden\" id=\"error-feedback-success\">\n        Thank you for your feedback!\n    </div>\n</div> <div class=\"cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300\">\n    <p class=\"text-13\">\n      <span class=\"cf-footer-item sm:block sm:mb-1\">Cloudflare Ray ID: <strong class=\"font-semibold\">a06bf5863fdaa115</strong></span>\n      <span class=\"cf-footer-separator sm:hidden\">&bull;</span>\n      <span id=\"cf-footer-item-ip\" class=\"cf-footer-item hidden sm:block sm:mb-1\">\n        Your IP:\n        <button type=\"button\" id=\"cf-footer-ip-reveal\" class=\"cf-footer-ip-reveal-btn\">Click to reveal</button>\n        <span class=\"hidden\" id=\"cf-footer-ip\">2601:189:8400:bfd0:495f:9fef:eff6:98c7</span>\n        <span class=\"cf-footer-separator sm:hidden\">&bull;</span>\n      </span>\n      <span class=\"cf-footer-item sm:block sm:mb-1\"><span>Performance &amp; security by</span> <a rel=\"noopener noreferrer\" href=\"https://www.cloudflare.com/5xx-error-landing\" id=\"brand_link\" target=\"_blank\">Cloudflare</a></span>\n      \n    </p>\n    <script>(function(){function d(){var b=a.getElementById(\"cf-footer-item-ip\"),c=a.getElementById(\"cf-footer-ip-reveal\");b&&\"classList\"in b&&(b.classList.remove(\"hidden\"),c.addEventListener(\"click\",function(){c.classList.add(\"hidden\");a.getElementById(\"cf-footer-ip\").classList.remove(\"hidden\")}))}var a=document;document.addEventListener&&a.addEventListener(\"DOMContentLoaded\",d)})();</script>\n  </div><!-- /.error-footer -->\n            </div>\n            <!-- /#cf-error-details -->\n        </div>\n        <!-- /#cf-wrapper -->\n\n         <script>\n    window._cf_translation = {};\n    \n    \n  </script> \n        \n    </body>\n</html>",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:18",
-      "updated_at": "2026-06-05T03:06:02.600082+00:00",
-      "video_file": "videos/inbox/Interview on the Common #4.mov"
-    },
-    "videos/inbox/Interview on the Common #5.mov|2026-06-05T15:30:00-04:00": {
-      "platforms": {
-        "instagram": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        },
-        "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        },
-        "youtube": {
-          "error": "Missing YOUTUBE_ACCESS_TOKEN",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:19",
-      "updated_at": "2026-06-06T00:19:17.790343+00:00",
-      "video_file": "videos/inbox/Interview on the Common #5.mov"
-    },
     "videos/inbox/Interview on the Common #6.mov|2026-06-07T11:00:00-04:00": {
       "platforms": {
         "instagram": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
+          "error": null,
+          "external_id": "6a258828a99737167ef751c6",
           "external_url": null,
-          "success": false
+          "success": true
         },
         "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
+          "error": null,
+          "external_id": "6a25882464cc3d082fe50d50",
           "external_url": null,
-          "success": false
+          "success": true
         },
         "youtube": {
-          "error": "Missing YOUTUBE_ACCESS_TOKEN",
-          "external_id": null,
-          "external_url": null,
-          "success": false
+          "error": null,
+          "external_id": "6Z3CXrNs5XE",
+          "external_url": "https://www.youtube.com/watch?v=6Z3CXrNs5XE",
+          "success": true
         }
       },
       "row_id": "manifest.csv:20",
-      "updated_at": "2026-06-11T00:17:46.874345+00:00",
+      "updated_at": "2026-06-10T04:19:10.194074+00:00",
       "video_file": "videos/inbox/Interview on the Common #6.mov"
+    },
+    "videos/inbox/Interview on the Common #7.mov|2026-06-08T14:00:00-04:00": {
+      "platforms": {
+        "instagram": {
+          "error": null,
+          "external_id": "6a27830d47a1955f5f5f08a9",
+          "external_url": null,
+          "success": true
+        },
+        "tiktok": {
+          "error": null,
+          "external_id": "6a27830947a1955f5f5f0798",
+          "external_url": null,
+          "success": true
+        },
+        "youtube": {
+          "error": null,
+          "external_id": "1LUdoW_42wE",
+          "external_url": "https://www.youtube.com/watch?v=1LUdoW_42wE",
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:21",
+      "updated_at": "2026-06-10T04:19:23.963485+00:00",
+      "video_file": "videos/inbox/Interview on the Common #7.mov"
+    },
+    "videos/inbox/Interview on the Common #8.mov|2026-06-10T14:30:00-04:00": {
+      "platforms": {
+        "instagram": {
+          "error": null,
+          "external_id": "6a29aee1f18d03bb28b8b961",
+          "external_url": null,
+          "success": true
+        },
+        "tiktok": {
+          "error": null,
+          "external_id": "6a29aeddf18d03bb28b8b86e",
+          "external_url": null,
+          "success": true
+        },
+        "youtube": {
+          "error": null,
+          "external_id": "k5XGmouQoSE",
+          "external_url": "https://www.youtube.com/watch?v=k5XGmouQoSE",
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:22",
+      "updated_at": "2026-06-11T03:33:25.239862+00:00",
+      "video_file": "videos/inbox/Interview on the Common #8.mov"
     },
     "videos/inbox/Life moves fast.mp4|2026-06-03T10:00:00-04:00": {
       "platforms": {
         "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
+          "error": "Missing video file: videos/inbox/Life moves fast.mp4",
           "external_id": null,
           "external_url": null,
           "success": false
         }
       },
       "row_id": "manifest.csv:11",
-      "updated_at": "2026-06-11T00:17:46.874273+00:00",
+      "updated_at": "2026-06-11T03:46:03.820617+00:00",
       "video_file": "videos/inbox/Life moves fast.mp4"
     },
     "videos/inbox/Niagara Falls & Toronto | Roadtrip Reunion with Study Abroad Friends.mp4|2026-06-04T20:00:00-04:00": {
       "platforms": {
         "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
+          "error": "Missing video file: videos/inbox/Niagara Falls & Toronto | Roadtrip Reunion with Study Abroad Friends.mp4",
           "external_id": null,
           "external_url": null,
           "success": false
         }
       },
       "row_id": "manifest.csv:7",
-      "updated_at": "2026-06-11T00:17:46.874256+00:00",
+      "updated_at": "2026-06-11T03:46:03.820561+00:00",
       "video_file": "videos/inbox/Niagara Falls & Toronto | Roadtrip Reunion with Study Abroad Friends.mp4"
     },
     "videos/inbox/Rubber Duck Race in Rangeley, Maine!.mp4|2026-06-03T14:00:00-04:00": {
       "platforms": {
         "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
+          "error": "Missing video file: videos/inbox/Rubber Duck Race in Rangeley, Maine!.mp4",
           "external_id": null,
           "external_url": null,
           "success": false
         }
       },
       "row_id": "manifest.csv:12",
-      "updated_at": "2026-06-11T00:17:46.874285+00:00",
+      "updated_at": "2026-06-11T03:46:03.820656+00:00",
       "video_file": "videos/inbox/Rubber Duck Race in Rangeley, Maine!.mp4"
     },
     "videos/inbox/Shania Twain Concert in Bangor, Maine.mp4|2026-06-03T18:00:00-04:00": {
       "platforms": {
         "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
+          "error": "Missing video file: videos/inbox/Shania Twain Concert in Bangor, Maine.mp4",
           "external_id": null,
           "external_url": null,
           "success": false
         }
       },
       "row_id": "manifest.csv:13",
-      "updated_at": "2026-06-11T00:17:46.874294+00:00",
+      "updated_at": "2026-06-11T03:46:03.820688+00:00",
       "video_file": "videos/inbox/Shania Twain Concert in Bangor, Maine.mp4"
-    },
-    "videos/inbox/Study Abroad in Wellington, New Zealand.mp4|2026-05-31T18:00:00-04:00": {
-      "platforms": {
-        "tiktok": {
-          "error": null,
-          "external_id": "6a1cb5825df6c922ead56921",
-          "external_url": null,
-          "success": true
-        }
-      },
-      "row_id": "manifest.csv:4",
-      "updated_at": "2026-05-31T22:26:13.585720+00:00",
-      "video_file": "videos/inbox/Study Abroad in Wellington, New Zealand.mp4"
-    },
-    "videos/inbox/The Original Dunkin Donuts.mp4|2026-06-04T10:00:00-04:00": {
-      "platforms": {
-        "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
-          "external_url": null,
-          "success": false
-        }
-      },
-      "row_id": "manifest.csv:14",
-      "updated_at": "2026-06-04T19:20:47.729284+00:00",
-      "video_file": "videos/inbox/The Original Dunkin Donuts.mp4"
-    },
-    "videos/inbox/example_clip.mp4|2026-05-01T10:00:00-04:00": {
-      "platforms": {
-        "tiktok": {
-          "error": null,
-          "external_id": "6a1def5c8178feb9c2155c7e",
-          "external_url": null,
-          "success": true
-        }
-      },
-      "row_id": "manifest.csv:5",
-      "updated_at": "2026-06-01T20:45:20.071065+00:00",
-      "video_file": "videos/archive/Visiting World\u2019s End in Hingham, Massachusetts.mp4"
     }
   }
 }
