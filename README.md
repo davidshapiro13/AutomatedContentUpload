@@ -48,6 +48,7 @@ Notes:
 - Requires `git` remote/auth already configured for push.
 - Uses `.env` in repo root for `MEDIA_S3_*` values and credentials.
 - The uploader writes `zernio_media_url` so posting does not require local video files.
+- Streamlit upload limit is configured at 1GB in `.streamlit/config.toml`.
 - Uploader commits only `manifests/manifest.csv`; `state/post_state.json` is managed by GitHub Actions.
 
 ## Manifest Columns
