@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import quote, urlencode, urlparse
+from urllib.parse import quote, unquote, urlencode, urlparse
 from urllib.request import Request, urlopen
 from uuid import uuid4
 
@@ -311,15 +311,77 @@ class YouTubeDirectAdapter:
 
     @staticmethod
     def _download_media(url: str) -> bytes:
-        req = Request(url=url, headers={"Accept": "video/*,*/*"}, method="GET")
+        req = Request(
+            url=url,
+            headers={
+                "Accept": "video/*,*/*",
+                "User-Agent": "Mozilla/5.0 (compatible; ReelsPublisher/1.0)",
+            },
+            method="GET",
+        )
         try:
             with urlopen(req, timeout=300) as resp:
                 return resp.read()
         except HTTPError as exc:
             details = exc.read().decode("utf-8", errors="replace")
+            if exc.code in {401, 403}:
+                try:
+                    return YouTubeDirectAdapter._download_media_from_s3_url(url)
+                except Exception as fallback_exc:  # noqa: BLE001
+                    raise RuntimeError(
+                        f"Failed to download YouTube media source: {exc.code} {exc.reason}: {details} "
+                        f"| private S3 fallback failed: {fallback_exc}"
+                    ) from exc
             raise RuntimeError(f"Failed to download YouTube media source: {exc.code} {exc.reason}: {details}") from exc
         except URLError as exc:
             raise RuntimeError(f"Failed to download YouTube media source: {exc.reason}") from exc
+
+    @staticmethod
+    def _s3_key_from_url(url: str) -> str:
+        parsed = urlparse(url)
+
+        public_base_url = os.getenv("MEDIA_S3_PUBLIC_BASE_URL", "").strip()
+        if public_base_url:
+            base = urlparse(public_base_url.rstrip("/") + "/")
+            if parsed.scheme == base.scheme and parsed.netloc == base.netloc:
+                base_path = base.path.rstrip("/")
+                path = parsed.path
+                if base_path and path.startswith(base_path + "/"):
+                    path = path[len(base_path) :]
+                return unquote(path.lstrip("/"))
+
+        bucket = os.getenv("MEDIA_S3_BUCKET", "").strip()
+        endpoint_url = os.getenv("MEDIA_S3_ENDPOINT_URL", "").strip()
+        if bucket and endpoint_url:
+            endpoint = urlparse(endpoint_url.rstrip("/") + "/")
+            if parsed.scheme == endpoint.scheme and parsed.netloc == endpoint.netloc:
+                path = unquote(parsed.path.lstrip("/"))
+                bucket_prefix = f"{bucket}/"
+                if path.startswith(bucket_prefix):
+                    return path[len(bucket_prefix) :]
+
+        return unquote(parsed.path.lstrip("/"))
+
+    @staticmethod
+    def _download_media_from_s3_url(url: str) -> bytes:
+        bucket = os.getenv("MEDIA_S3_BUCKET", "").strip()
+        region = os.getenv("MEDIA_S3_REGION", "us-east-1").strip()
+        endpoint_url = os.getenv("MEDIA_S3_ENDPOINT_URL", "").strip()
+        if not bucket:
+            raise RuntimeError("Missing MEDIA_S3_BUCKET")
+
+        try:
+            import boto3  # type: ignore
+        except ImportError as exc:
+            raise RuntimeError("Install boto3 to enable private media download: pip install boto3") from exc
+
+        key = YouTubeDirectAdapter._s3_key_from_url(url)
+        if not key:
+            raise RuntimeError(f"Could not derive S3 key from media URL: {url}")
+
+        client = boto3.client("s3", region_name=region, endpoint_url=endpoint_url or None)
+        obj = client.get_object(Bucket=bucket, Key=key)
+        return obj["Body"].read()
 
     def _media_bytes(self, row: ManifestRow, ctx: AdapterContext) -> tuple[bytes, str, str]:
         local_path = ctx.repo_root / row.video_file
