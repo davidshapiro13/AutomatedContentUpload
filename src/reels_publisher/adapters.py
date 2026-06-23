@@ -53,6 +53,8 @@ class ZernioAdapter:
             return f"{row.tiktok_caption} {row.hashtags}".strip()
         if platform == "instagram" and row.instagram_caption:
             return f"{row.instagram_caption} {row.hashtags}".strip()
+        if platform == "facebook" and row.facebook_caption:
+            return f"{row.facebook_caption} {row.hashtags}".strip()
         return f"{row.caption} {row.hashtags}".strip()
 
     @staticmethod
@@ -184,6 +186,113 @@ class ZernioAdapter:
             return PostResult(True, platform, external_id=str(post_id))
         except Exception as exc:  # noqa: BLE001
             return PostResult(False, platform, error=f"{exc} | media_url={media_url}")
+
+
+class FacebookDirectAdapter:
+    @staticmethod
+    def _stub_external_id() -> str:
+        ts = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+        return f"facebook_{ts}"
+
+    @staticmethod
+    def _http_json(method: str, url: str, *, headers: dict, payload: bytes) -> dict:
+        req = Request(url=url, data=payload, headers=headers, method=method)
+        try:
+            with urlopen(req, timeout=300) as resp:
+                raw = resp.read().decode("utf-8")
+            return json.loads(raw) if raw else {}
+        except HTTPError as exc:
+            details = exc.read().decode("utf-8", errors="replace")
+            raise RuntimeError(f"{exc.code} {exc.reason}: {details}") from exc
+        except URLError as exc:
+            raise RuntimeError(f"Network error: {exc.reason}") from exc
+
+    @staticmethod
+    def _build_multipart_form(fields: dict[str, str], file_field: str, file_name: str, file_bytes: bytes) -> tuple[bytes, str]:
+        boundary = f"===============codex_{uuid4().hex}=="
+        parts: list[bytes] = []
+        for name, value in fields.items():
+            parts.extend(
+                [
+                    f"--{boundary}\r\n".encode("utf-8"),
+                    f'Content-Disposition: form-data; name="{name}"\r\n\r\n'.encode("utf-8"),
+                    str(value).encode("utf-8"),
+                    b"\r\n",
+                ]
+            )
+        content_type = YouTubeDirectAdapter._media_content_type(file_name)
+        parts.extend(
+            [
+                f"--{boundary}\r\n".encode("utf-8"),
+                (
+                    f'Content-Disposition: form-data; name="{file_field}"; '
+                    f'filename="{Path(file_name).name}"\r\n'
+                ).encode("utf-8"),
+                f"Content-Type: {content_type}\r\n\r\n".encode("utf-8"),
+                file_bytes,
+                b"\r\n",
+                f"--{boundary}--\r\n".encode("utf-8"),
+            ]
+        )
+        return b"".join(parts), boundary
+
+    @staticmethod
+    def _media_bytes(row: ManifestRow, ctx: AdapterContext) -> tuple[bytes, str]:
+        local_path = ctx.repo_root / row.video_file
+        if local_path.exists():
+            return local_path.read_bytes(), local_path.name
+
+        media_url = row.zernio_media_url.strip()
+        if not media_url:
+            raise RuntimeError(f"Missing video file: {row.video_file}")
+
+        source_path = Path(urlparse(media_url).path)
+        source_name = source_path.name or row.video_file.name or "video.mp4"
+        return YouTubeDirectAdapter._download_media(media_url), source_name
+
+    def post(self, row: ManifestRow, ctx: AdapterContext) -> PostResult:
+        if ctx.dry_run:
+            return PostResult(True, "facebook", external_id=self._stub_external_id())
+
+        page_id = row.facebook_page_id or os.getenv("FACEBOOK_PAGE_ID", "").strip()
+        access_token = os.getenv("FACEBOOK_PAGE_ACCESS_TOKEN", "").strip()
+        if not page_id:
+            return PostResult(False, "facebook", error="Missing FACEBOOK_PAGE_ID")
+        if not access_token:
+            return PostResult(False, "facebook", error="Missing FACEBOOK_PAGE_ACCESS_TOKEN")
+
+        try:
+            media_bytes, source_name = self._media_bytes(row, ctx)
+        except Exception as exc:  # noqa: BLE001
+            return PostResult(False, "facebook", error=str(exc))
+
+        graph_version = os.getenv("FACEBOOK_GRAPH_API_VERSION", "v23.0").strip() or "v23.0"
+        description = f"{row.facebook_caption or row.caption} {row.hashtags}".strip()
+        fields = {
+            "access_token": access_token,
+            "description": description,
+            "published": "true",
+        }
+        body, boundary = self._build_multipart_form(fields, "source", source_name, media_bytes)
+        headers = {
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+            "Accept": "application/json",
+        }
+        url = f"https://graph.facebook.com/{graph_version}/{page_id}/videos"
+
+        try:
+            data = self._http_json("POST", url, headers=headers, payload=body)
+            video_id = data.get("id") or data.get("video_id")
+            if not video_id:
+                return PostResult(False, "facebook", error=f"Unexpected Facebook response: {data}")
+            return PostResult(
+                True,
+                "facebook",
+                external_id=str(video_id),
+                external_url=f"https://www.facebook.com/{page_id}/videos/{video_id}",
+            )
+        except Exception as exc:  # noqa: BLE001
+            return PostResult(False, "facebook", error=str(exc))
 
 
 class YouTubeDirectAdapter:

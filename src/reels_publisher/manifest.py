@@ -65,12 +65,18 @@ def load_manifest(path: Path) -> List[ManifestRow]:
                 hashtags=(raw.get("hashtags") or "").strip(),
                 post_to_tiktok=_parse_bool(raw.get("post_to_tiktok", "")),
                 post_to_instagram=_parse_bool(raw.get("post_to_instagram", "")),
+                post_to_facebook=_parse_bool(raw.get("post_to_facebook", "false")),
                 post_to_youtube=_parse_bool(raw.get("post_to_youtube", "")),
                 scheduled_at=_parse_datetime(raw.get("scheduled_at", "")),
                 status=status,
                 notes=(raw.get("notes") or "").strip(),
                 tiktok_caption=(raw.get("tiktok_caption") or "").strip(),
                 instagram_caption=(raw.get("instagram_caption") or "").strip(),
+                facebook_caption=(raw.get("facebook_caption") or "").strip(),
+                facebook_page_id=(
+                    (raw.get("facebook_page_id") or "").strip()
+                    or (raw.get("zernio_facebook_account_id") or "").strip()
+                ),
                 zernio_media_url=(
                     (raw.get("zernio_media_url") or "").strip()
                     or (raw.get("tiktok_video_url") or "").strip()
@@ -95,7 +101,7 @@ def validate_manifest(rows: List[ManifestRow], repo_root: Path) -> List[str]:
             errors.append(f"{row.row_id}: invalid status {row.status!r}")
         if row.youtube_privacy not in ALLOWED_PRIVACY:
             errors.append(f"{row.row_id}: invalid youtube_privacy {row.youtube_privacy!r}")
-        if not (row.post_to_tiktok or row.post_to_instagram or row.post_to_youtube):
+        if not (row.post_to_tiktok or row.post_to_instagram or row.post_to_facebook or row.post_to_youtube):
             errors.append(f"{row.row_id}: no platforms selected")
         if not row.video_file and (row.post_to_youtube or not row.zernio_media_url):
             errors.append(f"{row.row_id}: video_file is empty")

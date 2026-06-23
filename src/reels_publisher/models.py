@@ -14,12 +14,15 @@ class ManifestRow:
     hashtags: str
     post_to_tiktok: bool
     post_to_instagram: bool
+    post_to_facebook: bool
     post_to_youtube: bool
     scheduled_at: datetime
     status: str
     notes: str
     tiktok_caption: str = ""
     instagram_caption: str = ""
+    facebook_caption: str = ""
+    facebook_page_id: str = ""
     zernio_media_url: str = ""
     zernio_profile_id: str = ""
     zernio_tiktok_account_id: str = ""
