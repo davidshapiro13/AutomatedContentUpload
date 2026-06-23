@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List
 
-from .adapters import AdapterContext, FacebookDirectAdapter, YouTubeDirectAdapter, ZernioAdapter
+from .adapters import AdapterContext, FacebookDirectAdapter, InstagramDirectAdapter, YouTubeDirectAdapter, ZernioAdapter
 from .manifest import load_manifest, validate_manifest
 from .models import ManifestRow
 from .state import already_posted, load_state, record_result, save_state
@@ -79,6 +79,7 @@ def process_due_posts(manifest_path: Path, state_path: Path, repo_root: Path, dr
     ctx = AdapterContext(dry_run=dry_run, repo_root=repo_root)
     zernio_adapter = ZernioAdapter()
     facebook_adapter = FacebookDirectAdapter()
+    instagram_adapter = InstagramDirectAdapter()
     youtube_adapter = YouTubeDirectAdapter()
 
     processed = 0
@@ -104,6 +105,8 @@ def process_due_posts(manifest_path: Path, state_path: Path, repo_root: Path, dr
                 result = youtube_adapter.post(row, ctx)
             elif platform == "facebook":
                 result = facebook_adapter.post(row, ctx)
+            elif platform == "instagram":
+                result = instagram_adapter.post(row, ctx)
             else:
                 result = zernio_adapter.post(row, ctx, platform)
             record_result(state, row, result)

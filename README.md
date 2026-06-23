@@ -7,7 +7,8 @@ Simple CSV-driven automation scaffold for posting short-form videos to:
 - YouTube Shorts
 
 Platform adapters:
-- TikTok + Instagram use Zernio
+- TikTok uses Zernio
+- Instagram uses direct Meta Graph API publishing
 - Facebook uses direct Meta Graph API upload
 - YouTube Shorts uses direct YouTube Data API upload (no Zernio)
 
@@ -89,11 +90,14 @@ Backward compatibility:
 - `ZERNIO_API_KEY`
 - `ZERNIO_PROFILE_ID` (default profile if not set in manifest row)
 - `ZERNIO_TIKTOK_ACCOUNT_ID` (recommended for multi-account setups)
-- `ZERNIO_INSTAGRAM_ACCOUNT_ID` (recommended for multi-account setups)
 - `ZERNIO_YOUTUBE_ACCOUNT_ID` (recommended for multi-account setups)
 - `FACEBOOK_PAGE_ID` (Facebook Page ID for direct Meta uploads)
 - `FACEBOOK_PAGE_ACCESS_TOKEN` (Page access token with publish permissions)
 - `FACEBOOK_GRAPH_API_VERSION` (optional, default `v23.0`)
+- `INSTAGRAM_USER_ID` (Instagram professional account ID for direct Meta publishing)
+- `INSTAGRAM_ACCESS_TOKEN` (access token with Instagram content publishing permissions)
+- `INSTAGRAM_GRAPH_API_VERSION` (optional, defaults to `FACEBOOK_GRAPH_API_VERSION` or `v25.0`)
+- `INSTAGRAM_SHARE_TO_FEED` (optional, default `true`)
 - `YOUTUBE_ACCESS_TOKEN` (required for direct YouTube upload if auto-refresh is off)
 - `YOUTUBE_AUTO_REFRESH` (`1` to refresh before each direct YouTube upload)
 - `YOUTUBE_REFRESH_TOKEN` (required when `YOUTUBE_AUTO_REFRESH=1`)
@@ -114,8 +118,9 @@ Notes for auto-upload:
 - Install dependency: `pip install boto3`.
 
 Notes:
-- You connect TikTok/Instagram accounts in Zernio once via OAuth.
-- TikTok/Instagram publish through Zernio.
+- You connect TikTok in Zernio once via OAuth.
+- TikTok publishes through Zernio.
+- Instagram publishes directly to the Meta Graph API with an Instagram professional account ID and access token.
 - Facebook publishes directly to the Meta Graph API with a Page access token.
 - YouTube publishes directly to the YouTube API.
 - None of these are required for `--dry-run`.

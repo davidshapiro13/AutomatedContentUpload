@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import mimetypes
 import os
+import time as time_module
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -293,6 +294,108 @@ class FacebookDirectAdapter:
             )
         except Exception as exc:  # noqa: BLE001
             return PostResult(False, "facebook", error=str(exc))
+
+
+class InstagramDirectAdapter:
+    @staticmethod
+    def _stub_external_id() -> str:
+        ts = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+        return f"instagram_{ts}"
+
+    @staticmethod
+    def _http_json(method: str, url: str, *, payload: dict[str, str] | None = None) -> dict:
+        data = None
+        headers = {"Accept": "application/json"}
+        if payload is not None:
+            data = urlencode(payload).encode("utf-8")
+            headers["Content-Type"] = "application/x-www-form-urlencoded"
+        req = Request(url=url, data=data, headers=headers, method=method)
+        try:
+            with urlopen(req, timeout=300) as resp:
+                raw = resp.read().decode("utf-8")
+            return json.loads(raw) if raw else {}
+        except HTTPError as exc:
+            details = exc.read().decode("utf-8", errors="replace")
+            raise RuntimeError(f"{exc.code} {exc.reason}: {details}") from exc
+        except URLError as exc:
+            raise RuntimeError(f"Network error: {exc.reason}") from exc
+
+    @staticmethod
+    def _media_url(row: ManifestRow, ctx: AdapterContext) -> str:
+        media_url = row.zernio_media_url.strip()
+        if media_url:
+            return media_url
+        return ZernioAdapter()._upload_media_for_row(row, ctx)
+
+    @staticmethod
+    def _caption(row: ManifestRow) -> str:
+        return f"{row.instagram_caption or row.caption} {row.hashtags}".strip()
+
+    def _wait_for_container(self, graph_version: str, container_id: str, access_token: str) -> None:
+        url = (
+            f"https://graph.facebook.com/{graph_version}/{container_id}"
+            f"?fields=status_code,status&access_token={quote(access_token)}"
+        )
+        max_attempts = int(os.getenv("INSTAGRAM_PUBLISH_STATUS_ATTEMPTS", "60").strip() or "60")
+        delay = int(os.getenv("INSTAGRAM_PUBLISH_STATUS_DELAY_SECONDS", "10").strip() or "10")
+        for _ in range(max_attempts):
+            data = self._http_json("GET", url)
+            status_code = str(data.get("status_code") or "").strip().upper()
+            if status_code == "FINISHED":
+                return
+            if status_code in {"ERROR", "EXPIRED"}:
+                raise RuntimeError(f"Instagram media container failed: {data}")
+            time_module.sleep(delay)
+        raise RuntimeError(f"Timed out waiting for Instagram media container {container_id}")
+
+    def post(self, row: ManifestRow, ctx: AdapterContext) -> PostResult:
+        if ctx.dry_run:
+            return PostResult(True, "instagram", external_id=self._stub_external_id())
+
+        ig_user_id = os.getenv("INSTAGRAM_USER_ID", "").strip()
+        access_token = os.getenv("INSTAGRAM_ACCESS_TOKEN", "").strip()
+        if not ig_user_id:
+            return PostResult(False, "instagram", error="Missing INSTAGRAM_USER_ID")
+        if not access_token:
+            return PostResult(False, "instagram", error="Missing INSTAGRAM_ACCESS_TOKEN")
+
+        try:
+            media_url = self._media_url(row, ctx)
+        except Exception as exc:  # noqa: BLE001
+            return PostResult(False, "instagram", error=str(exc))
+
+        graph_version = os.getenv("INSTAGRAM_GRAPH_API_VERSION", os.getenv("FACEBOOK_GRAPH_API_VERSION", "v25.0")).strip()
+        graph_version = graph_version or "v25.0"
+        create_url = f"https://graph.facebook.com/{graph_version}/{ig_user_id}/media"
+        create_payload = {
+            "access_token": access_token,
+            "media_type": "REELS",
+            "video_url": media_url,
+            "caption": self._caption(row),
+        }
+        if os.getenv("INSTAGRAM_SHARE_TO_FEED", "true").strip().lower() in {"1", "true", "yes", "on"}:
+            create_payload["share_to_feed"] = "true"
+
+        try:
+            create_data = self._http_json("POST", create_url, payload=create_payload)
+            container_id = str(create_data.get("id") or "").strip()
+            if not container_id:
+                return PostResult(False, "instagram", error=f"Unexpected Instagram container response: {create_data}")
+
+            self._wait_for_container(graph_version, container_id, access_token)
+
+            publish_url = f"https://graph.facebook.com/{graph_version}/{ig_user_id}/media_publish"
+            publish_data = self._http_json(
+                "POST",
+                publish_url,
+                payload={"access_token": access_token, "creation_id": container_id},
+            )
+            media_id = publish_data.get("id")
+            if not media_id:
+                return PostResult(False, "instagram", error=f"Unexpected Instagram publish response: {publish_data}")
+            return PostResult(True, "instagram", external_id=str(media_id))
+        except Exception as exc:  # noqa: BLE001
+            return PostResult(False, "instagram", error=f"{exc} | media_url={media_url}")
 
 
 class YouTubeDirectAdapter:
