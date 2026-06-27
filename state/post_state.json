@@ -13,6 +13,19 @@
       "updated_at": "2026-06-24T01:32:09.454718+00:00",
       "video_file": "videos/archive/Hiking through New Zealand - Study Abroad.mp4"
     },
+    "videos/archive/Interview on the Common #2-20260602022825.mov|2026-06-27T15:30:00-04:00": {
+      "platforms": {
+        "facebook": {
+          "error": "Missing FACEBOOK_PAGE_ID",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        }
+      },
+      "row_id": "manifest.csv:47",
+      "updated_at": "2026-06-27T20:19:43.351801+00:00",
+      "video_file": "videos/archive/Interview on the Common #2-20260602022825.mov"
+    },
     "videos/archive/Life moves fast.mp4|2026-06-26T10:00:00-04:00": {
       "platforms": {
         "facebook": {
@@ -23,7 +36,7 @@
         }
       },
       "row_id": "manifest.csv:43",
-      "updated_at": "2026-06-27T19:11:44.930581+00:00",
+      "updated_at": "2026-06-27T20:19:43.351745+00:00",
       "video_file": "videos/archive/Life moves fast.mp4"
     },
     "videos/archive/Rubber Duck Race in Rangeley, Maine!.mp4|2026-06-26T15:30:00-04:00": {
@@ -36,7 +49,7 @@
         }
       },
       "row_id": "manifest.csv:44",
-      "updated_at": "2026-06-27T19:11:44.930596+00:00",
+      "updated_at": "2026-06-27T20:19:43.351761+00:00",
       "video_file": "videos/archive/Rubber Duck Race in Rangeley, Maine!.mp4"
     },
     "videos/archive/Shania Twain Concert in Bangor, Maine.mp4|2026-06-26T20:00:00-04:00": {
@@ -49,7 +62,7 @@
         }
       },
       "row_id": "manifest.csv:45",
-      "updated_at": "2026-06-27T19:11:44.930609+00:00",
+      "updated_at": "2026-06-27T20:19:43.351774+00:00",
       "video_file": "videos/archive/Shania Twain Concert in Bangor, Maine.mp4"
     },
     "videos/archive/Study Abroad in Wellington, New Zealand.mp4|2026-06-23T20:00:00-04:00": {
@@ -75,7 +88,7 @@
         }
       },
       "row_id": "manifest.csv:46",
-      "updated_at": "2026-06-27T19:11:44.930622+00:00",
+      "updated_at": "2026-06-27T20:19:43.351788+00:00",
       "video_file": "videos/archive/The Original Dunkin Donuts.mp4"
     },
     "videos/inbox/Interview on the Common #10.mov|2026-06-15T15:30:00-04:00": {
@@ -200,7 +213,7 @@
         }
       },
       "row_id": "manifest.csv:31",
-      "updated_at": "2026-06-27T19:11:44.930560+00:00",
+      "updated_at": "2026-06-27T20:19:43.351723+00:00",
       "video_file": "videos/inbox/Interview on the Common #15.mov"
     },
     "videos/inbox/Interview on the Common #16.mov|2026-06-18T15:30:00-04:00": {
@@ -363,7 +376,7 @@
         }
       },
       "row_id": "manifest.csv:11",
-      "updated_at": "2026-06-27T19:11:44.930488+00:00",
+      "updated_at": "2026-06-27T20:19:43.351648+00:00",
       "video_file": "videos/inbox/Life moves fast.mp4"
     },
     "videos/inbox/Niagara Falls & Toronto | Roadtrip Reunion with Study Abroad Friends.mp4|2026-06-04T20:00:00-04:00": {
@@ -376,7 +389,7 @@
         }
       },
       "row_id": "manifest.csv:7",
-      "updated_at": "2026-06-27T19:11:44.930460+00:00",
+      "updated_at": "2026-06-27T20:19:43.351620+00:00",
       "video_file": "videos/inbox/Niagara Falls & Toronto | Roadtrip Reunion with Study Abroad Friends.mp4"
     },
     "videos/inbox/Rubber Duck Race in Rangeley, Maine!.mp4|2026-06-03T14:00:00-04:00": {
@@ -389,7 +402,7 @@
         }
       },
       "row_id": "manifest.csv:12",
-      "updated_at": "2026-06-27T19:11:44.930508+00:00",
+      "updated_at": "2026-06-27T20:19:43.351668+00:00",
       "video_file": "videos/inbox/Rubber Duck Race in Rangeley, Maine!.mp4"
     },
     "videos/inbox/Shania Twain Concert in Bangor, Maine.mp4|2026-06-03T18:00:00-04:00": {
@@ -402,7 +415,7 @@
         }
       },
       "row_id": "manifest.csv:13",
-      "updated_at": "2026-06-27T19:11:44.930524+00:00",
+      "updated_at": "2026-06-27T20:19:43.351685+00:00",
       "video_file": "videos/inbox/Shania Twain Concert in Bangor, Maine.mp4"
     }
   }
