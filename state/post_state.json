@@ -23,7 +23,7 @@
         }
       },
       "row_id": "manifest.csv:56",
-      "updated_at": "2026-07-01T20:47:38.504392+00:00",
+      "updated_at": "2026-07-01T22:14:52.398639+00:00",
       "video_file": "videos/archive/Interview on the Common #10.mov"
     },
     "videos/archive/Interview on the Common #11.mov|2026-06-30T20:00:00-04:00": {
@@ -36,7 +36,7 @@
         }
       },
       "row_id": "manifest.csv:57",
-      "updated_at": "2026-07-01T20:47:38.504410+00:00",
+      "updated_at": "2026-07-01T22:14:52.398656+00:00",
       "video_file": "videos/archive/Interview on the Common #11.mov"
     },
     "videos/archive/Interview on the Common #12.mov|2026-07-01T10:00:00-04:00": {
@@ -49,7 +49,7 @@
         }
       },
       "row_id": "manifest.csv:58",
-      "updated_at": "2026-07-01T20:47:38.504422+00:00",
+      "updated_at": "2026-07-01T22:14:52.398669+00:00",
       "video_file": "videos/archive/Interview on the Common #12.mov"
     },
     "videos/archive/Interview on the Common #13.mov|2026-07-01T15:30:00-04:00": {
@@ -62,7 +62,7 @@
         }
       },
       "row_id": "manifest.csv:59",
-      "updated_at": "2026-07-01T20:47:38.504434+00:00",
+      "updated_at": "2026-07-01T22:14:52.398681+00:00",
       "video_file": "videos/archive/Interview on the Common #13.mov"
     },
     "videos/archive/Interview on the Common #2-20260602022825.mov|2026-06-27T15:30:00-04:00": {
@@ -88,7 +88,7 @@
         }
       },
       "row_id": "manifest.csv:49",
-      "updated_at": "2026-07-01T20:47:38.504311+00:00",
+      "updated_at": "2026-07-01T22:14:52.398550+00:00",
       "video_file": "videos/archive/Interview on the Common #3-20260602232043.mov"
     },
     "videos/archive/Interview on the Common #4-20260605031118.mov|2026-06-28T15:30:00-04:00": {
@@ -101,7 +101,7 @@
         }
       },
       "row_id": "manifest.csv:50",
-      "updated_at": "2026-07-01T20:47:38.504325+00:00",
+      "updated_at": "2026-07-01T22:14:52.398565+00:00",
       "video_file": "videos/archive/Interview on the Common #4-20260605031118.mov"
     },
     "videos/archive/Interview on the Common #5-20260605193400.mov|2026-06-28T20:00:00-04:00": {
@@ -114,7 +114,7 @@
         }
       },
       "row_id": "manifest.csv:51",
-      "updated_at": "2026-07-01T20:47:38.504338+00:00",
+      "updated_at": "2026-07-01T22:14:52.398579+00:00",
       "video_file": "videos/archive/Interview on the Common #5-20260605193400.mov"
     },
     "videos/archive/Interview on the Common #6.mov|2026-06-29T10:00:00-04:00": {
@@ -140,7 +140,7 @@
         }
       },
       "row_id": "manifest.csv:53",
-      "updated_at": "2026-07-01T20:47:38.504353+00:00",
+      "updated_at": "2026-07-01T22:14:52.398595+00:00",
       "video_file": "videos/archive/Interview on the Common #7.mov"
     },
     "videos/archive/Interview on the Common #8.mov|2026-06-29T20:00:00-04:00": {
@@ -153,7 +153,7 @@
         }
       },
       "row_id": "manifest.csv:54",
-      "updated_at": "2026-07-01T20:47:38.504367+00:00",
+      "updated_at": "2026-07-01T22:14:52.398610+00:00",
       "video_file": "videos/archive/Interview on the Common #8.mov"
     },
     "videos/archive/Interview on the Common #9.mov|2026-06-30T10:00:00-04:00": {
@@ -166,7 +166,7 @@
         }
       },
       "row_id": "manifest.csv:55",
-      "updated_at": "2026-07-01T20:47:38.504380+00:00",
+      "updated_at": "2026-07-01T22:14:52.398623+00:00",
       "video_file": "videos/archive/Interview on the Common #9.mov"
     },
     "videos/archive/Interviewing People on the Common #2-20260602025403-20260602025619.mov|2026-06-27T20:00:00-04:00": {
@@ -447,6 +447,37 @@
       "updated_at": "2026-06-30T01:36:32.538526+00:00",
       "video_file": "videos/inbox/Interview on the Common #18.mov"
     },
+    "videos/inbox/Interview on the Common #19.mov|2026-07-01T17:00:00-04:00": {
+      "platforms": {
+        "facebook": {
+          "error": "Missing FACEBOOK_PAGE_ID",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        },
+        "instagram": {
+          "error": "Missing INSTAGRAM_USER_ID",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        },
+        "tiktok": {
+          "error": "Missing ZERNIO_API_KEY",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        },
+        "youtube": {
+          "error": "Missing YOUTUBE_ACCESS_TOKEN",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        }
+      },
+      "row_id": "manifest.csv:66",
+      "updated_at": "2026-07-01T22:14:52.398729+00:00",
+      "video_file": "videos/inbox/Interview on the Common #19.mov"
+    },
     "videos/inbox/Interview on the Common #6.mov|2026-06-07T11:00:00-04:00": {
       "platforms": {
         "instagram": {
@@ -557,7 +588,7 @@
         }
       },
       "row_id": "manifest.csv:11",
-      "updated_at": "2026-07-01T20:47:38.504255+00:00",
+      "updated_at": "2026-07-01T22:14:52.398491+00:00",
       "video_file": "videos/inbox/Life moves fast.mp4"
     },
     "videos/inbox/Niagara Falls & Toronto | Roadtrip Reunion with Study Abroad Friends.mp4|2026-06-04T20:00:00-04:00": {
@@ -570,7 +601,7 @@
         }
       },
       "row_id": "manifest.csv:7",
-      "updated_at": "2026-07-01T20:47:38.504227+00:00",
+      "updated_at": "2026-07-01T22:14:52.398462+00:00",
       "video_file": "videos/inbox/Niagara Falls & Toronto | Roadtrip Reunion with Study Abroad Friends.mp4"
     },
     "videos/inbox/Rubber Duck Race in Rangeley, Maine!.mp4|2026-06-03T14:00:00-04:00": {
@@ -583,7 +614,7 @@
         }
       },
       "row_id": "manifest.csv:12",
-      "updated_at": "2026-07-01T20:47:38.504275+00:00",
+      "updated_at": "2026-07-01T22:14:52.398512+00:00",
       "video_file": "videos/inbox/Rubber Duck Race in Rangeley, Maine!.mp4"
     },
     "videos/inbox/Shania Twain Concert in Bangor, Maine.mp4|2026-06-03T18:00:00-04:00": {
@@ -596,7 +627,7 @@
         }
       },
       "row_id": "manifest.csv:13",
-      "updated_at": "2026-07-01T20:47:38.504291+00:00",
+      "updated_at": "2026-07-01T22:14:52.398530+00:00",
       "video_file": "videos/inbox/Shania Twain Concert in Bangor, Maine.mp4"
     }
   }
