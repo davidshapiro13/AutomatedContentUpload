@@ -851,32 +851,32 @@
     "videos/inbox/Interview on the Common #29.mov|2026-07-22T16:00:00-04:00": {
       "platforms": {
         "facebook": {
-          "error": "Missing FACEBOOK_PAGE_ID",
+          "error": "Network error: [Errno 32] Broken pipe",
           "external_id": null,
           "external_url": null,
           "success": false
         },
         "instagram": {
-          "error": "Missing INSTAGRAM_USER_ID",
-          "external_id": null,
+          "error": null,
+          "external_id": "18131351095618682",
           "external_url": null,
-          "success": false
+          "success": true
         },
         "tiktok": {
-          "error": "Missing ZERNIO_API_KEY",
-          "external_id": null,
+          "error": null,
+          "external_id": "6a6145c7e95cde4d2153066a",
           "external_url": null,
-          "success": false
+          "success": true
         },
         "youtube": {
-          "error": "Missing YOUTUBE_ACCESS_TOKEN",
-          "external_id": null,
-          "external_url": null,
-          "success": false
+          "error": null,
+          "external_id": "nw9PbctjLyY",
+          "external_url": "https://www.youtube.com/watch?v=nw9PbctjLyY",
+          "success": true
         }
       },
       "row_id": "manifest.csv:77",
-      "updated_at": "2026-07-22T22:15:29.130068+00:00",
+      "updated_at": "2026-07-22T22:37:23.059213+00:00",
       "video_file": "videos/inbox/Interview on the Common #29.mov"
     },
     "videos/inbox/Interview on the Common #6.mov|2026-06-07T11:00:00-04:00": {
