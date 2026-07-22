@@ -38,6 +38,13 @@ python3 main.py post-due --manifest manifests/manifest.csv --state state/post_st
 python3 main.py report --state state/post_state.json
 ```
 
+Target a single manifest row when recovering a stuck reel:
+
+```bash
+python3 main.py post-due --manifest manifests/manifest.csv --state state/post_state.json --row-number 76
+python3 main.py post-due --manifest manifests/manifest.csv --state state/post_state.json --row-number 76 --retry-failed
+```
+
 ## Local Uploader (V2 Intake)
 
 Run a local-only UI (not hosted) to upload a video to R2, append a manifest row, then `git add/commit/push`.

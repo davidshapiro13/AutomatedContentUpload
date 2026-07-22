@@ -40,6 +40,13 @@ def already_posted(state: Dict, row: ManifestRow, platform: str) -> bool:
     return bool(platform_data.get("success"))
 
 
+def previous_failure(state: Dict, row: ManifestRow, platform: str) -> bool:
+    key = row_key(row)
+    entry = state["posts"].get(key, {})
+    platform_data = entry.get("platforms", {}).get(platform, {})
+    return "success" in platform_data and not bool(platform_data.get("success"))
+
+
 def record_result(state: Dict, row: ManifestRow, result: PostResult) -> None:
     key = row_key(row)
     posts = state.setdefault("posts", {})
