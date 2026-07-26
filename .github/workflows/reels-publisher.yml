@@ -15,6 +15,7 @@ permissions:
 jobs:
   post-due:
     runs-on: ubuntu-latest
+    environment: YOUTUBE_ACCESS_TOKEN
     steps:
       - name: Checkout
         uses: actions/checkout@v4
