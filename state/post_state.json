@@ -879,6 +879,37 @@
       "updated_at": "2026-07-22T22:37:23.059213+00:00",
       "video_file": "videos/inbox/Interview on the Common #29.mov"
     },
+    "videos/inbox/Interview on the Common #30.mov|2026-07-24T15:30:00-04:00": {
+      "platforms": {
+        "facebook": {
+          "error": "Network error: EOF occurred in violation of protocol (_ssl.c:2437)",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        },
+        "instagram": {
+          "error": null,
+          "external_id": "18464455801112930",
+          "external_url": null,
+          "success": true
+        },
+        "tiktok": {
+          "error": null,
+          "external_id": "6a662fe77c8f6d9d90a63b7a",
+          "external_url": null,
+          "success": true
+        },
+        "youtube": {
+          "error": null,
+          "external_id": "XSLSGZwISxY",
+          "external_url": "https://www.youtube.com/watch?v=XSLSGZwISxY",
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:79",
+      "updated_at": "2026-07-26T16:05:29.650402+00:00",
+      "video_file": "videos/inbox/Interview on the Common #30.mov"
+    },
     "videos/inbox/Interview on the Common #6.mov|2026-06-07T11:00:00-04:00": {
       "platforms": {
         "instagram": {
