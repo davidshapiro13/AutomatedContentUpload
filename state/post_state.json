@@ -895,7 +895,7 @@
         },
         "tiktok": {
           "error": null,
-          "external_id": "6a662fe77c8f6d9d90a63b7a",
+          "external_id": "6a697cfd11c6e485f696e404",
           "external_url": null,
           "success": true
         },
@@ -907,7 +907,7 @@
         }
       },
       "row_id": "manifest.csv:79",
-      "updated_at": "2026-07-26T16:05:29.650402+00:00",
+      "updated_at": "2026-07-29T04:09:36.364977+00:00",
       "video_file": "videos/inbox/Interview on the Common #30.mov"
     },
     "videos/inbox/Interview on the Common #31.mov|2026-07-27T16:30:00-04:00": {
@@ -926,7 +926,7 @@
         },
         "tiktok": {
           "error": null,
-          "external_id": "6a67c29a8e96f317925c2355",
+          "external_id": "6a697d0048614a5ffa321f3b",
           "external_url": null,
           "success": true
         },
@@ -938,7 +938,7 @@
         }
       },
       "row_id": "manifest.csv:80",
-      "updated_at": "2026-07-27T20:43:21.247185+00:00",
+      "updated_at": "2026-07-29T04:09:39.429196+00:00",
       "video_file": "videos/inbox/Interview on the Common #31.mov"
     },
     "videos/inbox/Interview on the Common #6.mov|2026-06-07T11:00:00-04:00": {
