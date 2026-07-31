@@ -966,6 +966,31 @@
       "updated_at": "2026-07-29T19:42:31.786783+00:00",
       "video_file": "videos/inbox/Interview on the Common #32.mov"
     },
+    "videos/inbox/Interview on the Common #33.mov|2026-07-31T15:30:00-04:00": {
+      "platforms": {
+        "instagram": {
+          "error": null,
+          "external_id": "18140863792518266",
+          "external_url": null,
+          "success": true
+        },
+        "tiktok": {
+          "error": null,
+          "external_id": "6a6cfc9533d8f11e2403fef8",
+          "external_url": null,
+          "success": true
+        },
+        "youtube": {
+          "error": null,
+          "external_id": "Kao7NfEVr8A",
+          "external_url": "https://www.youtube.com/watch?v=Kao7NfEVr8A",
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:84",
+      "updated_at": "2026-07-31T19:51:42.113955+00:00",
+      "video_file": "videos/inbox/Interview on the Common #33.mov"
+    },
     "videos/inbox/Interview on the Common #6.mov|2026-06-07T11:00:00-04:00": {
       "platforms": {
         "instagram": {
