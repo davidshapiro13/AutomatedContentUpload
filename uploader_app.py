@@ -317,11 +317,10 @@ def main() -> None:
             step=timedelta(minutes=15),
             key="scheduled_time",
         )
-        col1, col2, col3, col4 = st.columns(4)
+        col1, col2, col3 = st.columns(3)
         post_to_tiktok = col1.checkbox("TikTok", value=True)
         post_to_instagram = col2.checkbox("Instagram", value=False)
-        post_to_facebook = col3.checkbox("Facebook", value=False)
-        post_to_youtube = col4.checkbox("YouTube", value=False)
+        post_to_youtube = col3.checkbox("YouTube", value=False)
         youtube_title = st.text_input("YouTube title (optional)")
         youtube_description = st.text_area("YouTube description (optional)", height=80)
         submitted = st.form_submit_button("Upload + Add + Push")
@@ -331,7 +330,7 @@ def main() -> None:
         scheduled_dt = datetime.fromisoformat(scheduled_at)
         if video is None:
             st.error("Select a video file.")
-        elif not (post_to_tiktok or post_to_instagram or post_to_facebook or post_to_youtube):
+        elif not (post_to_tiktok or post_to_instagram or post_to_youtube):
             st.error("Select at least one platform.")
         elif scheduled_dt <= datetime.now(EASTERN_TZ):
             st.error("Scheduled time must be in the future.")
@@ -344,7 +343,7 @@ def main() -> None:
                     "hashtags": hashtags.strip(),
                     "post_to_tiktok": str(post_to_tiktok).lower(),
                     "post_to_instagram": str(post_to_instagram).lower(),
-                    "post_to_facebook": str(post_to_facebook).lower(),
+                    "post_to_facebook": "false",
                     "post_to_youtube": str(post_to_youtube).lower(),
                     "scheduled_at": scheduled_at.strip(),
                     "status": "ready",

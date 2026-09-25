@@ -88,6 +88,42 @@ class ZernioAdapter:
             return env_value
         return ""
 
+    def _resolve_destination(self, row: ManifestRow, platform: str, api_key: str) -> tuple[str, str]:
+        """Resolve an active account and its profile, avoiding stale saved IDs."""
+        configured_account_id = self._account_id_for_platform(row, platform)
+        configured_profile_id = row.zernio_profile_id or os.getenv("ZERNIO_PROFILE_ID", "").strip()
+        data = self._http_json(
+            "GET",
+            "https://zernio.com/api/v1/accounts",
+            headers={"Authorization": f"Bearer {api_key}"},
+        )
+        matches = [
+            account
+            for account in data.get("accounts", [])
+            if account.get("platform") == platform and account.get("isActive", True)
+        ]
+        if configured_account_id:
+            configured_match = next(
+                (account for account in matches if (account.get("id") or account.get("_id")) == configured_account_id),
+                None,
+            )
+            if configured_match:
+                matches = [configured_match]
+        if len(matches) != 1:
+            raise RuntimeError(f"Expected one active Zernio {platform} account, found {len(matches)}")
+        account = matches[0]
+        account_id = str(account.get("id") or account.get("_id") or "").strip()
+        profile = account.get("profileId")
+        if isinstance(profile, dict):
+            profile_id = str(profile.get("id") or profile.get("_id") or "").strip()
+        else:
+            profile_id = str(profile or "").strip()
+        if not profile_id:
+            profile_id = configured_profile_id
+        if not account_id or not profile_id:
+            raise RuntimeError(f"Zernio returned an incomplete {platform} account")
+        return profile_id, account_id
+
     def _upload_media_for_row(self, row: ManifestRow, ctx: AdapterContext) -> str:
         cached = ctx.media_url_cache.get(row.row_id)
         if cached:
@@ -140,14 +176,12 @@ class ZernioAdapter:
             return PostResult(True, platform, external_id=self._stub_external_id(platform))
 
         api_key = os.getenv("ZERNIO_API_KEY", "").strip()
-        profile_id = row.zernio_profile_id or os.getenv("ZERNIO_PROFILE_ID", "").strip()
-        account_id = self._account_id_for_platform(row, platform) or profile_id
         if not api_key:
             return PostResult(False, platform, error="Missing ZERNIO_API_KEY")
-        if not profile_id:
-            return PostResult(False, platform, error="Missing zernio_profile_id and ZERNIO_PROFILE_ID")
-        if not account_id:
-            return PostResult(False, platform, error=f"Missing account ID for {platform}")
+        try:
+            profile_id, account_id = self._resolve_destination(row, platform, api_key)
+        except Exception as exc:  # noqa: BLE001
+            return PostResult(False, platform, error=str(exc))
         try:
             media_url = row.zernio_media_url or self._upload_media_for_row(row, ctx)
         except Exception as exc:  # noqa: BLE001

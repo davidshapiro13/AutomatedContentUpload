@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List
 
-from .adapters import AdapterContext, FacebookDirectAdapter, InstagramDirectAdapter, YouTubeDirectAdapter, ZernioAdapter
+from .adapters import AdapterContext, YouTubeDirectAdapter, ZernioAdapter
 from .manifest import load_manifest, validate_manifest
 from .models import ManifestRow
 from .state import already_posted, load_state, previous_failure, record_result, save_state
@@ -22,8 +22,8 @@ def _selected_platforms(row: ManifestRow) -> List[str]:
         out.append("tiktok")
     if row.post_to_instagram:
         out.append("instagram")
-    if row.post_to_facebook:
-        out.append("facebook")
+    # Facebook publishing is intentionally disabled. Keep the manifest column
+    # for backward compatibility with existing CSV files.
     if row.post_to_youtube:
         out.append("youtube")
     return out
@@ -87,21 +87,9 @@ def _preflight_errors(rows: List[ManifestRow], state: Dict, row_number: int | No
                 continue
             if previous_failure(state, row, platform) and not retry_failed:
                 continue
-            if platform == "tiktok":
+            if platform in {"tiktok", "instagram"}:
                 if _missing_env("ZERNIO_API_KEY"):
-                    errors.append(f"{row.row_id}: missing ZERNIO_API_KEY for tiktok")
-                if not (row.zernio_profile_id or os.getenv("ZERNIO_PROFILE_ID", "").strip()):
-                    errors.append(f"{row.row_id}: missing zernio_profile_id or ZERNIO_PROFILE_ID for tiktok")
-            elif platform == "instagram":
-                if _missing_env("INSTAGRAM_USER_ID"):
-                    errors.append(f"{row.row_id}: missing INSTAGRAM_USER_ID")
-                if _missing_env("INSTAGRAM_ACCESS_TOKEN"):
-                    errors.append(f"{row.row_id}: missing INSTAGRAM_ACCESS_TOKEN")
-            elif platform == "facebook":
-                if not (row.facebook_page_id or os.getenv("FACEBOOK_PAGE_ID", "").strip()):
-                    errors.append(f"{row.row_id}: missing facebook_page_id or FACEBOOK_PAGE_ID")
-                if _missing_env("FACEBOOK_PAGE_ACCESS_TOKEN"):
-                    errors.append(f"{row.row_id}: missing FACEBOOK_PAGE_ACCESS_TOKEN")
+                    errors.append(f"{row.row_id}: missing ZERNIO_API_KEY for {platform}")
             elif platform == "youtube":
                 errors.extend(f"{row.row_id}: missing {name}" for name in _youtube_missing_env())
     return errors
@@ -161,8 +149,6 @@ def process_due_posts(
     now = datetime.now(timezone.utc)
     ctx = AdapterContext(dry_run=dry_run, repo_root=repo_root)
     zernio_adapter = ZernioAdapter()
-    facebook_adapter = FacebookDirectAdapter()
-    instagram_adapter = InstagramDirectAdapter()
     youtube_adapter = YouTubeDirectAdapter()
 
     processed = 0
@@ -195,10 +181,6 @@ def process_due_posts(
                 continue
             if platform == "youtube":
                 result = youtube_adapter.post(row, ctx)
-            elif platform == "facebook":
-                result = facebook_adapter.post(row, ctx)
-            elif platform == "instagram":
-                result = instagram_adapter.post(row, ctx)
             else:
                 result = zernio_adapter.post(row, ctx, platform)
             record_result(state, row, result)

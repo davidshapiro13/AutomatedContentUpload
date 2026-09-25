@@ -325,6 +325,31 @@
       "updated_at": "2026-06-30T01:36:32.538578+00:00",
       "video_file": "videos/archive/The Original Dunkin Donuts.mp4"
     },
+    "videos/inbox/097A3013-0159-4666-ADBE-953B6DA75EC5.MOV|2026-09-25T17:15:00-04:00": {
+      "platforms": {
+        "instagram": {
+          "error": null,
+          "external_id": "6ab6e92d43aad20ec182bef6",
+          "external_url": null,
+          "success": true
+        },
+        "tiktok": {
+          "error": null,
+          "external_id": "6ab6e4757a708c3094ae1c23",
+          "external_url": null,
+          "success": true
+        },
+        "youtube": {
+          "error": null,
+          "external_id": "F-WV56CkJx0",
+          "external_url": "https://www.youtube.com/watch?v=F-WV56CkJx0",
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:104",
+      "updated_at": "2026-09-25T21:35:43.448843+00:00",
+      "video_file": "videos/inbox/097A3013-0159-4666-ADBE-953B6DA75EC5.MOV"
+    },
     "videos/inbox/Interview on the Common #10.mov|2026-06-15T15:30:00-04:00": {
       "platforms": {
         "instagram": {
