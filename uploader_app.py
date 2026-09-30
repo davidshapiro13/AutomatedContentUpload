@@ -127,7 +127,22 @@ def _discard_local_state_changes() -> None:
     subprocess.run(["git", "restore", "--", rel_state], cwd=REPO_ROOT, check=False)
 
 
+def _validate_manifest_file() -> None:
+    text = MANIFEST_PATH.read_text(encoding="utf-8")
+    if any(marker in text for marker in ("<<<<<<<", "=======", ">>>>>>>")):
+        raise RuntimeError("Manifest contains unresolved Git conflict markers; refusing to commit")
+    with MANIFEST_PATH.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.reader(handle))
+    if not rows:
+        raise RuntimeError("Manifest is empty")
+    column_count = len(rows[0])
+    malformed = [line for line, row in enumerate(rows[1:], start=2) if len(row) != column_count]
+    if malformed:
+        raise RuntimeError(f"Manifest has malformed CSV records: {malformed}")
+
+
 def commit_and_push(message: str) -> None:
+    _validate_manifest_file()
     _discard_local_state_changes()
     _git("add", str(MANIFEST_PATH.relative_to(REPO_ROOT)))
     commit_proc = subprocess.run(
