@@ -350,6 +350,31 @@
       "updated_at": "2026-09-25T21:35:43.448843+00:00",
       "video_file": "videos/inbox/097A3013-0159-4666-ADBE-953B6DA75EC5.MOV"
     },
+    "videos/inbox/Central Asia Trailer.mp4|2026-09-30T16:00:00-04:00": {
+      "platforms": {
+        "instagram": {
+          "error": null,
+          "external_id": "6abd8f39d3e6c8d41a7b86dc",
+          "external_url": null,
+          "success": true
+        },
+        "tiktok": {
+          "error": null,
+          "external_id": "6abd8f36c9198111724d905d",
+          "external_url": null,
+          "success": true
+        },
+        "youtube": {
+          "error": null,
+          "external_id": "EfQr6v_OsqI",
+          "external_url": "https://www.youtube.com/watch?v=EfQr6v_OsqI",
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:106",
+      "updated_at": "2026-09-30T22:38:00.065288+00:00",
+      "video_file": "videos/inbox/Central Asia Trailer.mp4"
+    },
     "videos/inbox/Interview on the Common #10.mov|2026-06-15T15:30:00-04:00": {
       "platforms": {
         "instagram": {
