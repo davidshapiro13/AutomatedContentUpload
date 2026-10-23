@@ -1563,6 +1563,31 @@
       "updated_at": "2026-10-21T21:40:16.686143+00:00",
       "video_file": "videos/inbox/Interview on the Common #51.mp4"
     },
+    "videos/inbox/Interview on the Common #52.mp4|2026-10-23T15:30:00-04:00": {
+      "platforms": {
+        "instagram": {
+          "error": null,
+          "external_id": "6adbe00444a01e6055562a05",
+          "external_url": null,
+          "success": true
+        },
+        "tiktok": {
+          "error": "409 Conflict: {\"error\":\"This exact content is already scheduled, publishing, or was posted to this account within the last 24 hours.\",\"details\":{\"accountId\":\"6a1b09222b2567671a73a4cc\",\"platform\":\"tiktok\",\"existingPostId\":\"6adbb6938a8c810aa37e64ff\"}} | media_url=https://pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev/reels/Interview_on_the_Common_%2352-20261022091544.mp4",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        },
+        "youtube": {
+          "error": null,
+          "external_id": "-9VP47DpVac",
+          "external_url": "https://www.youtube.com/watch?v=-9VP47DpVac",
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:109",
+      "updated_at": "2026-10-23T22:30:47.030049+00:00",
+      "video_file": "videos/inbox/Interview on the Common #52.mp4"
+    },
     "videos/inbox/Interview on the Common #6.mov|2026-06-07T11:00:00-04:00": {
       "platforms": {
         "instagram": {
