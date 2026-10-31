@@ -1764,6 +1764,31 @@
       "row_id": "manifest.csv:13",
       "updated_at": "2026-07-22T22:15:29.129674+00:00",
       "video_file": "videos/inbox/Shania Twain Concert in Bangor, Maine.mp4"
+    },
+    "videos/inbox/halloween.MOV|2026-10-31T12:00:00-04:00": {
+      "platforms": {
+        "instagram": {
+          "error": "409 Conflict: {\"error\":\"This exact content is already scheduled, publishing, or was posted to this account within the last 24 hours.\",\"details\":{\"accountId\":\"6ab6e84c105608078e08c745\",\"platform\":\"instagram\",\"existingPostId\":\"6ae61181f4b7731a7059661f\"}} | media_url=https://pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev/reels/halloween-20261031000426.MOV",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        },
+        "tiktok": {
+          "error": "409 Conflict: {\"error\":\"This exact content is already scheduled, publishing, or was posted to this account within the last 24 hours.\",\"details\":{\"accountId\":\"6a1b09222b2567671a73a4cc\",\"platform\":\"tiktok\",\"existingPostId\":\"6ae6117ef4b7731a7059660c\"}} | media_url=https://pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev/reels/halloween-20261031000426.MOV",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        },
+        "youtube": {
+          "error": null,
+          "external_id": "O4g6muqMKrs",
+          "external_url": "https://www.youtube.com/watch?v=O4g6muqMKrs",
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:112",
+      "updated_at": "2026-10-31T17:42:15.472017+00:00",
+      "video_file": "videos/inbox/halloween.MOV"
     }
   }
 }
