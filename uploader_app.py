@@ -153,11 +153,10 @@ def commit_and_push(message: str) -> None:
     )
     if commit_proc.returncode != 0:
         output = f"{commit_proc.stdout}\n{commit_proc.stderr}".lower()
-        if "nothing to commit" in output:
-            return
-        raise subprocess.CalledProcessError(
-            commit_proc.returncode, commit_proc.args, output=commit_proc.stdout, stderr=commit_proc.stderr
-        )
+        if "nothing to commit" not in output:
+            raise subprocess.CalledProcessError(
+                commit_proc.returncode, commit_proc.args, output=commit_proc.stdout, stderr=commit_proc.stderr
+            )
 
     _git("pull", "--rebase", "--autostash")
     push_proc = subprocess.run(["git", "push"], cwd=REPO_ROOT, text=True, capture_output=True)
@@ -173,6 +172,30 @@ def commit_and_push(message: str) -> None:
     raise subprocess.CalledProcessError(
         push_proc.returncode, push_proc.args, output=push_proc.stdout, stderr=push_proc.stderr
     )
+
+
+def sync_manifest_before_edit() -> None:
+    """Bring bot status updates in before modifying their shared CSV."""
+    _validate_manifest_file()
+    pending = subprocess.run(
+        ["git", "status", "--porcelain", "--", "manifests/manifest.csv"],
+        cwd=REPO_ROOT, text=True, capture_output=True, check=True,
+    )
+    if pending.stdout.strip():
+        raise RuntimeError("An earlier manifest edit is still pending; recover it before adding another upload.")
+    _git("pull", "--rebase", "--autostash")
+    _validate_manifest_file()
+
+
+def find_queued_row(selected_post: Dict) -> int:
+    with MANIFEST_PATH.open(newline="", encoding="utf-8") as handle:
+        for number, row in enumerate(csv.DictReader(handle), start=2):
+            if (row["video_file"] == selected_post["video_file"]
+                    and row["scheduled_at"] == selected_post["scheduled_at_iso"]):
+                if row["status"] != "ready":
+                    raise RuntimeError("This upload has already been processed; refresh the queue.")
+                return number
+    raise RuntimeError("This queued upload has changed; refresh the queue.")
 
 
 def default_schedule_date() -> date:
@@ -296,9 +319,10 @@ def main() -> None:
             else:
                 try:
                     media = upload_to_r2(replacement_video.name, replacement_video.getvalue())
+                    sync_manifest_before_edit()
                     new_video_file = f"videos/inbox/{Path(replacement_video.name).name}"
                     update_manifest_row(
-                        int(selected_post["row_number"]),
+                        find_queued_row(selected_post),
                         {
                             "video_file": new_video_file,
                             "zernio_media_url": media["url"],
@@ -352,6 +376,7 @@ def main() -> None:
         else:
             try:
                 media = upload_to_r2(video.name, video.getvalue())
+                sync_manifest_before_edit()
                 row = {
                     "video_file": f"videos/inbox/{Path(video.name).name}",
                     "caption": caption.strip(),
