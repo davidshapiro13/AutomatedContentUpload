@@ -318,8 +318,8 @@ def main() -> None:
                 st.error("Select a replacement video file.")
             else:
                 try:
-                    media = upload_to_r2(replacement_video.name, replacement_video.getvalue())
                     sync_manifest_before_edit()
+                    media = upload_to_r2(replacement_video.name, replacement_video.getvalue())
                     new_video_file = f"videos/inbox/{Path(replacement_video.name).name}"
                     update_manifest_row(
                         find_queued_row(selected_post),
@@ -375,8 +375,8 @@ def main() -> None:
             st.error("Scheduled time must be in the future.")
         else:
             try:
-                media = upload_to_r2(video.name, video.getvalue())
                 sync_manifest_before_edit()
+                media = upload_to_r2(video.name, video.getvalue())
                 row = {
                     "video_file": f"videos/inbox/{Path(video.name).name}",
                     "caption": caption.strip(),

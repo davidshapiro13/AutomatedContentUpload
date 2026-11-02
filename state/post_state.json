@@ -1729,16 +1729,16 @@
     "videos/inbox/Mrbean.MP4|2026-11-01T13:30:00-05:00": {
       "platforms": {
         "instagram": {
-          "error": "409 Conflict: {\"error\":\"This exact content is already scheduled, publishing, or was posted to this account within the last 24 hours.\",\"details\":{\"accountId\":\"6ab6e84c105608078e08c745\",\"platform\":\"instagram\",\"existingPostId\":\"6ae785ab94971e5afad1690e\"}} | media_url=https://pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev/reels/Mrbean-20261101131310.MP4",
-          "external_id": null,
+          "error": null,
+          "external_id": "6ae785ab94971e5afad1690e",
           "external_url": null,
-          "success": false
+          "success": true
         },
         "tiktok": {
-          "error": "409 Conflict: {\"error\":\"This exact content is already scheduled, publishing, or was posted to this account within the last 24 hours.\",\"details\":{\"accountId\":\"6a1b09222b2567671a73a4cc\",\"platform\":\"tiktok\",\"existingPostId\":\"6ae785a9302a211957731e0a\"}} | media_url=https://pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev/reels/Mrbean-20261101131310.MP4",
-          "external_id": null,
+          "error": null,
+          "external_id": "6ae785a9302a211957731e0a",
           "external_url": null,
-          "success": false
+          "success": true
         },
         "youtube": {
           "error": null,
