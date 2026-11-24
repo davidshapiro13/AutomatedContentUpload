@@ -375,6 +375,31 @@
       "updated_at": "2026-09-30T22:38:00.065288+00:00",
       "video_file": "videos/inbox/Central Asia Trailer.mp4"
     },
+    "videos/inbox/Inteerview on the Common #54.mp4|2026-11-23T16:00:00-05:00": {
+      "platforms": {
+        "instagram": {
+          "error": "409 Conflict: {\"error\":\"This exact content is already scheduled, publishing, or was posted to this account within the last 24 hours.\",\"details\":{\"accountId\":\"6ab6e84c105608078e08c745\",\"platform\":\"instagram\",\"existingPostId\":\"6b04a9b36e022d7b0684b88a\"},\"code\":\"duplicate_content\"} | media_url=https://pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev/reels/Inteerview_on_the_Common_%2354-20261123003145.mp4",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        },
+        "tiktok": {
+          "error": "409 Conflict: {\"error\":\"This exact content is already scheduled, publishing, or was posted to this account within the last 24 hours.\",\"details\":{\"accountId\":\"6a1b09222b2567671a73a4cc\",\"platform\":\"tiktok\",\"existingPostId\":\"6b04a9aebf04f35f6960ba26\"},\"code\":\"duplicate_content\"} | media_url=https://pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev/reels/Inteerview_on_the_Common_%2354-20261123003145.mp4",
+          "external_id": null,
+          "external_url": null,
+          "success": false
+        },
+        "youtube": {
+          "error": null,
+          "external_id": "f03rYrO8ujo",
+          "external_url": "https://www.youtube.com/watch?v=f03rYrO8ujo",
+          "success": true
+        }
+      },
+      "row_id": "manifest.csv:115",
+      "updated_at": "2026-11-24T03:55:26.321753+00:00",
+      "video_file": "videos/inbox/Inteerview on the Common #54.mp4"
+    },
     "videos/inbox/Interview on the Common #10.mov|2026-06-15T15:30:00-04:00": {
       "platforms": {
         "instagram": {
