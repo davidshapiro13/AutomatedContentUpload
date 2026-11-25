@@ -378,18 +378,24 @@
     "videos/inbox/Inteerview on the Common #54.mp4|2026-11-23T16:00:00-05:00": {
       "platforms": {
         "instagram": {
-          "error": "409 Conflict: {\"error\":\"This exact content is already scheduled, publishing, or was posted to this account within the last 24 hours.\",\"details\":{\"accountId\":\"6ab6e84c105608078e08c745\",\"platform\":\"instagram\",\"existingPostId\":\"6b04a9b36e022d7b0684b88a\"},\"code\":\"duplicate_content\"} | media_url=https://pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev/reels/Inteerview_on_the_Common_%2354-20261123003145.mp4",
-          "external_id": null,
-          "external_url": null,
-          "success": false
+          "error": null,
+          "external_id": "6b04a9b36e022d7b0684b88a",
+          "external_url": "https://www.instagram.com/reel/DgGTIQ7FXVH/",
+          "success": true
         },
         "tiktok": {
-          "error": "409 Conflict: {\"error\":\"This exact content is already scheduled, publishing, or was posted to this account within the last 24 hours.\",\"details\":{\"accountId\":\"6a1b09222b2567671a73a4cc\",\"platform\":\"tiktok\",\"existingPostId\":\"6b04a9aebf04f35f6960ba26\"},\"code\":\"duplicate_content\"} | media_url=https://pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev/reels/Inteerview_on_the_Common_%2354-20261123003145.mp4",
-          "external_id": null,
-          "external_url": null,
-          "success": false
+          "error": null,
+          "external_id": "6b04a9aebf04f35f6960ba26",
+          "external_url": "https://www.tiktok.com/@david_shapiro_adventures/video/7711475019796237582",
+          "success": true
         },
         "youtube": {
+          "additional_known_upload": {
+            "error": null,
+            "external_id": "ESjmPd0EPpY",
+            "external_url": "https://www.youtube.com/watch?v=ESjmPd0EPpY",
+            "success": true
+          },
           "error": null,
           "external_id": "f03rYrO8ujo",
           "external_url": "https://www.youtube.com/watch?v=f03rYrO8ujo",
@@ -1642,17 +1648,23 @@
       "platforms": {
         "instagram": {
           "error": null,
-          "external_id": "6b061f560d96a67ea5d62a85",
-          "external_url": null,
+          "external_id": "6b061a94b6c785d6b85a457d",
+          "external_url": "https://www.instagram.com/reel/DgJHV7UiqWc/",
           "success": true
         },
         "tiktok": {
-          "error": "409 Conflict: {\"error\":\"This exact content is already scheduled, publishing, or was posted to this account within the last 24 hours.\",\"details\":{\"accountId\":\"6a1b09222b2567671a73a4cc\",\"platform\":\"tiktok\",\"existingPostId\":\"6b0615646c0421a9993864bc\"},\"code\":\"duplicate_content\"} | media_url=https://pub-17bd3244bebf4b55af2bbe9d5659f7bc.r2.dev/reels/Interview_on_the_Common_%2355-20261123003353.mp4",
-          "external_id": null,
-          "external_url": null,
-          "success": false
+          "error": null,
+          "external_id": "6b0615646c0421a9993864bc",
+          "external_url": "https://www.tiktok.com/@david_shapiro_adventures/video/7711874962486758686",
+          "success": true
         },
         "youtube": {
+          "additional_known_upload": {
+            "error": null,
+            "external_id": "4bYchyjL7fc",
+            "external_url": "https://www.youtube.com/watch?v=4bYchyjL7fc",
+            "success": true
+          },
           "error": null,
           "external_id": "-fSWQFQEln8",
           "external_url": "https://www.youtube.com/watch?v=-fSWQFQEln8",
